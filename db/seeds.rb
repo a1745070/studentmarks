@@ -7,4 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 
+student_list = [
+  [ "a1781637","ESASII","HD","95" ]
 
+]
+
+assignment_list = [
+  [  ]
+
+]
+
+student_list.each do |studentid, courseid, grade, mark|
+  StudentMark.create(studentid: studentid, courseid: courseid, grade: grade, mark: mark)
+end
+
+assignment_list.each do |studentid, courseid, grade, mark|
+  Assignment.create(studentid: studentid, courseid: courseid, grade: grade, mark: mark)
+end
