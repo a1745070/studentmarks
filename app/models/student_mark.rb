@@ -1,0 +1,2 @@
+class StudentMark < ApplicationRecord
+end
