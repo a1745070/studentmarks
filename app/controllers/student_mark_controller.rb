@@ -1,0 +1,2 @@
+class StudentMarkController < ApplicationController
+end
