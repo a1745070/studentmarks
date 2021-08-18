@@ -55,7 +55,8 @@
 
           <h2>Results</h2>
 
-          <table class="ui blue table">
+
+          <table class="ui blue table " style="max-width:700px;">
             <thead>
             <tr>
               <th>Student ID</th>
@@ -75,16 +76,16 @@
               <td>Test Student 1</td>
               <td>very bad work</td>
               <td>86% (HD)</td>
-              <td class="right aligned">
+              <td class="left aligned">
                 <div class="ui small basic buttons">
-                  <%= link_to "#", class: "ui button" do %>
-                    <i class="eye icon"></i> View Submission
+                  <%= link_to "#", class: "ui mini button" do %>
+                    <i class="eye icon"></i>
                   <% end %>
-                  <%= link_to "#", class: "ui button" do %>
-                    <i class="edit outline icon"></i> Issue Feedback
+                  <%= link_to "#", class: "ui mini button" do %>
+                    <i class="edit outline icon"></i>
                   <% end %>
-                  <%= link_to "#", method: :delete, data: { confirm: 'Are you sure?' }, class: "ui button" do %>
-                    <i class="cancel icon"></i> Remove Submission
+                  <%= link_to "#", method: :delete, data: { confirm: 'Are you sure?' }, class: "ui mini button" do %>
+                    <i class="cancel icon"></i>
                   <% end %>
                 </div>
               </td>
@@ -97,6 +98,6 @@
         </div>
       </div>
     </div>
-    </div>
   </div>
+</div>
 </div>
