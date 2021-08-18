@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Appl</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>STUDENT MARKS SYSTEM</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+<div class="ui top inverted fixed menu">
+  <div class="item inverted">
+    <h3><%=link_to 'Student Marks System', candidates_path %></h3>
+  </div>
+
+  <div class ="item">
+
+    <%= link_to href="/candidates/admin", class:"ui secondary button" do%>
+      <i class="user md icon"></i>
+      Course Coordinator View
+    <% end %>
+  </div>
+
+
+  </div>
+  <div class ="item">
+    <i class ="user md icon"></i>
+    Admin View
+  </div>
+</div>
+<div class="ui container main">
+  <%= yield %>
+</div>
+</body>
 </html>
