@@ -1,0 +1,102 @@
+<div class="ui bottom attached segment pushable">
+  <div class="ui visible inverted left vertical sidebar menu">
+    <a class="item">
+      <i class="bullhorn icon"></i>
+      <button class="ui inverted white button">ANNOUCEMENTS</button>
+    </a>
+    <a class="item">
+      <i class="book icon"></i>
+      <button class="ui inverted primary button">MODULES</button>
+    </a>
+    <a class="item">
+      <i class="edit icon"></i>
+      <button class="ui inverted green button">ASSIGNMENTS</button>
+    </a>
+    <a class="item">
+      <i class="clipboard icon"></i>
+      <button class="ui inverted red button">EXAMS</button>
+    </a>
+    <a class="item">
+      <i class="comment icon"></i>
+      <button class="ui inverted orange button">DISCUSSION</button>
+    </a>
+    <a class="item">
+      <i class="video icon"></i>
+      <button class="ui inverted yellow button">LECTURES</button>
+    </a>
+    <a class="item">
+      <i class="calendar icon"></i>
+      <button class="ui inverted pink button">CALENDAR</button>
+    </a>
+  </div>
+  <div class="pusher">
+    <div class="ui basic segment">
+      <h3 class="ui header">Application Content</h3>
+      <div>
+        <div class = "ui message">
+          <h1 class="ui info header">
+            <i class="user md icon"></i>
+            Course Coordinator View
+          </h1>
+          <p></p>
+
+          Assignment
+          <div class="ui selection dropdown">
+            <input type="hidden" name=“assignment”>
+            <i class="dropdown icon"></i>
+            <div class="default text">assignment</div>
+            <div class="menu">
+              <div class="item" data-value=“EXAM”>EXAM</div>
+              <div class="item" data-value=“ASSIGNMENT”>ASSIGNMENT</div>
+              <div class="item" data-value=“TUTORIAL”>TUTORIAL</div>
+              <div class="item" data-value=“WORKSHOP”>WORKSHOP</div>
+            </div>
+          </div>
+
+          <h2>Results</h2>
+
+          <table class="ui blue table">
+            <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Student Name</th>
+              <th>Comments</th>
+              <th>Grade</th>
+              <th class="right aligned"></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <p>  </p>
+
+
+            <tr>
+              <td>1</td>
+              <td>Test Student 1</td>
+              <td>very bad work</td>
+              <td>86% (HD)</td>
+              <td class="right aligned">
+                <div class="ui small basic buttons">
+                  <%= link_to "#", class: "ui button" do %>
+                    <i class="eye icon"></i> View Submission
+                  <% end %>
+                  <%= link_to "#", class: "ui button" do %>
+                    <i class="edit outline icon"></i> Issue Feedback
+                  <% end %>
+                  <%= link_to "#", method: :delete, data: { confirm: 'Are you sure?' }, class: "ui button" do %>
+                    <i class="cancel icon"></i> Remove Submission
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+          <br>
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
