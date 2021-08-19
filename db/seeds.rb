@@ -27,17 +27,15 @@ user_list = [
   ["bobby","a1783331","bentley","a1783331@student.adelaide.edu.au","0"],
   ["ian","a1773884","poggers","a1773884@student.adelaide.edu.au","0"],
   ["aniza","a1884223","itsjustamood","a1884223@student.adelaide.edu.au","0"],
-  ["chris","a1772883","solocarry","a1772883@student.adelaide.edu.au","0"]
-  ["archie","a1882993","iloveui","a1882993@student.adelaide.edu.au","0"]
+  ["chris","a1772883","solocarry","a1772883@student.adelaide.edu.au","0"],
+  ["archie","a1882993","iloveui","a1882993@student.adelaide.edu.au","0"],
   ["justin","a1223332","spiritcannon500","a1223332@student.adelaide.edu.au","0"]
 ]
 
-courses_list = [
-  ["ESAASII","Engineering software as an additional service","a course"]
-]
+courses_list = ["ESAASII","Engineering software as an additional service","a course"]
 
-user_list.each do |username, studentid, password, email, authorisationlvl|
-  User.create(username: username, studentid: studentid, password: password, email: email, authorisationlvl: authorisationlvl)
+user_list.each do |name, studentid, password, email, authorisationlvl|
+  User.create(name: name, studentid: studentid, password: password, email: email, authorisationlvl: authorisationlvl)
 end
 
 student_list.each do |studentid, courseid, grade, mark|
