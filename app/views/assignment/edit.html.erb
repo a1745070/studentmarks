@@ -9,3 +9,9 @@
     <i class="chevron left icon"></i> Back
   <% end %>
 </div>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>

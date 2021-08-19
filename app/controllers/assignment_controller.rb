@@ -1,24 +1,20 @@
 class AssignmentController < ApplicationController
-  before_action :set_assignments
-
-  def set_assignments
-    @assignments = Assignment.where(id: params[:id])
-  end
 
   def admin
     @assignments = Assignment.all
-
     #@joined - User.left_joins(:Assignment).where(studentid: @all_ids, name: @all_students, comments:@all_comments,
     #grades: @all_grades)
   end
 
   def edit
+    session[:id] = params[:id]
   end
 
   def show
   end
 
   def update
+    @assignments = Assignment.where(id: session[:id])
     respond_to do |format|
       if @assignments.update(assignment_params)
         format.html do
@@ -33,7 +29,7 @@ class AssignmentController < ApplicationController
   end
 
   def assignment_params
-    params.permit(:id, :courseid, :assignmentid, :assignmentname, :assignmentdescr, :grade, :mark, :comments)
+    params.permit(:courseid, :assignmentid, :assignmentname, :assignmentdescr, :grade, :mark, :comments)
   end
 
 end
