@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :student_mark
   resources :assignment
   resources :course
-  resources :login
+  resources :user
 
 end
