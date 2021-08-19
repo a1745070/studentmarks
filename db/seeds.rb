@@ -18,8 +18,8 @@ student_list = [
 ]
 
 assignment_list = [
-  ["ESAASII","001","assignment1","agile","P","50","ok effort"],
-  ["ESAASII","002","assignment2","waterfall","P","55","try better next year"]
+  ["ESAASII","001","assignment1","agile","P",50,"ok effort"],
+  ["ESAASII","002","assignment2","waterfall","P",55,"try better next year"]
 ]
 
 user_list = [
@@ -45,6 +45,6 @@ student_list.each do |studentid, courseid, grade, mark|
 end
 
 assignment_list.each do |studentid, courseid, assignmentid, assignmentname, assignmentdescr, grade, mark, comments|
-  Assignment.create(studentid: studentid, courseid: courseid, assignmentid: assignmentid, assignmentname: assignmentname, assignmentdescr: assignmentdescr, grade: grade, mark: mark, comment: comment)
+  Assignment.create(studentid: studentid, courseid: courseid, assignmentid: assignmentid, assignmentname: assignmentname, assignmentdescr: assignmentdescr, grade: grade, mark: mark, comments: comments)
 end
 
