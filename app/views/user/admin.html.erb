@@ -63,20 +63,19 @@
               <th>Student ID</th>
               <th>Student Name</th>
               <th>Comments</th>
+              <th>Mark</th>
               <th>Grade</th>
               <th class="right aligned"></th>
             </tr>
             </thead>
             <tbody>
-
-            <p>  </p>
-
-
+            <% @assignments.each do |assignment| %>
             <tr>
-              <td>1</td>
-              <td>Test Student 1</td>
-              <td onclick="course_coordinator_onclick">very bad work</td>
-              <td onclick="course_coordinator_onclick">86% (HD)</td>
+              <td><%= assignment.studentid %></td>
+              <td><%= assignment.name %></td>
+              <td><%= assignment.comments %></td>
+              <td><%= assignment.mark %></td>
+              <td><%= assignment.grade %></td>
               <td class="left aligned">
                 <div class="ui small basic buttons">
                   <%= link_to "#", class: "ui mini button" do %>
