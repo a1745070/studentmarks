@@ -18,8 +18,8 @@ student_list = [
 ]
 
 assignment_list = [
-  ["ESAASII","001","assignment1","agile","P",50,"ok effort"],
-  ["ESAASII","002","assignment2","waterfall","P",55,"try better next year"]
+  ["a1223332","ESAASII","001","assignment1","agile","P",50,"ok effort"],
+  ["a1882993","ESAASII","002","assignment2","waterfall","P",55,"try better next year"]
 ]
 
 user_list = [
