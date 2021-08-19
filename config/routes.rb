@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'assignment#admin'
   # add routes later to the html.erb
   get '/assignment/admin' => 'assignment#admin'
+  patch '/assignment/update' => 'assignment#update'
   resources :student_mark
   resources :assignment
   resources :course

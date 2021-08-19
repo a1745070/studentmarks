@@ -1,4 +1,9 @@
 class AssignmentController < ApplicationController
+  before_action :set_assignments
+
+  def set_assignments
+    @assignments = Assignment.where(id: params[:id])
+  end
 
   def admin
     @assignments = Assignment.all
@@ -8,27 +13,27 @@ class AssignmentController < ApplicationController
   end
 
   def edit
-    # supposedly edits the marks and the comments
   end
 
   def show
-
   end
 
   def update
     respond_to do |format|
-      if @assignments.update(movie_params)
-        format.html { redirect_to @assignments, notice: "Assignment details was successfully updated." }
-        format.json { render :show, status: :ok, location: @assignments }
+      if @assignments.update(assignment_params)
+        format.html do
+        redirect_to '/assignment/admin'
+        end
+        #format.json { render :admin, status: :ok, location: @assignments }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @assignments.errors, status: :unprocessable_entity }
+        #format.html { render :edit, status: :unprocessable_entity }
+        #format.json { render json: @assignments.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def assignment_params
-    params.require(:assignment).permit(:courseid, :assignmentid, :assignmentname, :assignmentdescr, :grade, :mark, :comments)
+    params.permit(:id, :courseid, :assignmentid, :assignmentname, :assignmentdescr, :grade, :mark, :comments)
   end
 
 end
