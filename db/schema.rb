@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_19_110535) do
+ActiveRecord::Schema.define(version: 2021_08_19_112701) do
 
   create_table "assignments", force: :cascade do |t|
     t.string "courseid"
@@ -32,16 +32,6 @@ ActiveRecord::Schema.define(version: 2021_08_19_110535) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "logins", force: :cascade do |t|
-    t.string "username"
-    t.string "studentid"
-    t.string "password"
-    t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "authorisationlvl"
-  end
-
   create_table "student_marks", force: :cascade do |t|
     t.string "studentid"
     t.string "courseid"
@@ -49,6 +39,16 @@ ActiveRecord::Schema.define(version: 2021_08_19_110535) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "grade"
     t.integer "mark"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "studentid"
+    t.string "password"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "authorisationlvl"
   end
 
 end
