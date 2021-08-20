@@ -11,6 +11,7 @@ class AssignmentController < ApplicationController
   end
 
   def show
+    @assignments = Assignment.where(id: session[:id])
   end
 
   def update
