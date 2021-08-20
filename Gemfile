@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '2.7.4'
 
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'

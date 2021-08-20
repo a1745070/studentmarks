@@ -6,6 +6,10 @@ class AssignmentController < ApplicationController
     #grades: @all_grades)
   end
 
+  def create
+    @assignments = Assignment.new
+  end
+
   def edit
     session[:id] = params[:id]
   end
@@ -25,6 +29,14 @@ class AssignmentController < ApplicationController
         #format.html { render :edit, status: :unprocessable_entity }
         #format.json { render json: @assignments.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    @assignments.destroy
+    respond_to do |format|
+      format.html { redirect_to href="/admin", notice: "Student submission was successfully removed from the Database."}
+      format.json { head :no_content }
     end
   end
 
