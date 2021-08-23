@@ -1,13 +1,15 @@
 class AssignmentController < ApplicationController
 
   def admin
-    @assignments = Assignment.all
+    #@assignments = Assignment.all
+    Assignment.admin
     #@joined - User.left_joins(:Assignment).where(studentid: @all_ids, name: @all_students, comments:@all_comments,
     #grades: @all_grades)
   end
 
   def create
-    @assignments = Assignment.new
+    # @assignments = Assignment.new
+    Assignment.create(assignment_params)
   end
 
   def edit
@@ -19,17 +21,14 @@ class AssignmentController < ApplicationController
 
   def update
     @assignments = Assignment.where(id: session[:id])
-    respond_to do |format|
-      if @assignments.update(assignment_params)
-        format.html do
-        redirect_to '/assignment/admin'
-        end
-        #format.json { render :admin, status: :ok, location: @assignments }
-      else
-        #format.html { render :edit, status: :unprocessable_entity }
-        #format.json { render json: @assignments.errors, status: :unprocessable_entity }
-      end
-    end
+    @assignments.update
+    # respond_to do |format|
+    #  if @assignments.update(assignment_params)
+    #    format.html do
+    #   redirect_to '/assignment/admin'
+    #    end
+    #  end
+    # end
   end
 
   def destroy
