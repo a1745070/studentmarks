@@ -1,0 +1,25 @@
+<div class="ui bottom attached segment pushable">
+<h1>
+
+</h1>
+<h1 class="ui header">
+  Feedback for Student:
+</h1>
+
+  <p>The student has requested for feedback! Please insert more comprehensive feedback below.</p>
+
+<%= render 'feedbackform', assignment: @assignments %>
+
+<div class="ui basic buttons">
+  <%= link_to assignment_admin_url , class: "ui button" do %>
+    <i class="chevron left icon"></i> Back
+  <% end %>
+</div>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
+</div>
