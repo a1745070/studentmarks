@@ -20,13 +20,13 @@ class Assignment < ApplicationRecord
   def show
   end
 
-  def self.update(assignment_params)
+  def self.update
     #@assignments = Assignment.where(id: session[:id])
     #respond_to do |format|
-      if self.update
+    #if self.update
         format.html do
           redirect_to '/assignment/admin'
-        end
+          #end
       end
       #end
   end
