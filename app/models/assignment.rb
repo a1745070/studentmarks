@@ -1,13 +1,14 @@
 class Assignment < ApplicationRecord
   belongs_to :user
 
-  self.assignment = "assignment"
+  #self.assignments = "assignments"
 
-  def admin
-    self.Assignment.all
+  def self.admin
+    # self.Assignment.all
+    @assignments = Assignment.all
   end
 
-  def create
+  def self.create
     #Assignment.create(assignment_params)
     self.Assignment.new
   end
@@ -19,19 +20,18 @@ class Assignment < ApplicationRecord
   def show
   end
 
-  def update
-    @assignments = Assignment.where(id: session[:id])
-    respond_to do |format|
+  def self.update(assignment_params)
+    #@assignments = Assignment.where(id: session[:id])
+    #respond_to do |format|
       if self.update
         format.html do
           redirect_to '/assignment/admin'
         end
       end
-    end
+      #end
   end
 
   def destroy
-    @assignments.destroy
     respond_to do |format|
       format.html { redirect_to href="/admin", notice: "Student submission was successfully removed from the Database."}
       format.json { head :no_content }
