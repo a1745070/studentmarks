@@ -20,10 +20,10 @@ class Assignment < ApplicationRecord
   def show
   end
 
-  def self.update(id)
+  def self.update(id , params)
     assignment = Assignment.where(id: id)
     #respond_to do |format|
-    if assignment.update(:mark , :comments)
+    if assignment.update(params)
       #format.html do
       #   redirect_to '/assignment/admin'
       #   end

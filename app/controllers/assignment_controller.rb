@@ -21,7 +21,7 @@ class AssignmentController < ApplicationController
 
   def update
     #@assignments = Assignment.where(id: session[:id])
-    Assignment.update(session[:id])
+    Assignment.update(session[:id], assignment_params)
     # @assignments = Assignment.update(assignment_params)
      respond_to do |format|
     #  if @assignments.update(assignment_params)
