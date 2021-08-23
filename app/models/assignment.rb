@@ -1,5 +1,5 @@
 class Assignment < ApplicationRecord
-  has_one :User
+  belongs_to :user
 
   self.assignment = "assignment"
 

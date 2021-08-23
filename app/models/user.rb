@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  has_many :Assignment
+  has_many :assignments
 end
