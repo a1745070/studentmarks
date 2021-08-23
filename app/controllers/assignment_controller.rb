@@ -2,14 +2,8 @@ class AssignmentController < ApplicationController
 
   def admin
     @assignments = Assignment.all
-    @all_ids = Assignment.where(studentid: :studentid)
-    @all_students = User.where(name: :name)
-    @all_comments = Assignment.where(comments: :comments)
-    @all_grades = Assignment.where(grades: :grades)
-
-    @combined = Assignment.includes(:User)
-    @user = Assignment.joins(:User)
-    #@joined - User.joins(Assignment)
+    #@joined - User.left_joins(:Assignment).where(studentid: @all_ids, name: @all_students, comments:@all_comments,
+    #grades: @all_grades)
   end
 
   def create
@@ -21,7 +15,6 @@ class AssignmentController < ApplicationController
   end
 
   def show
-
   end
 
   def update
