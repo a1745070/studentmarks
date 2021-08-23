@@ -20,15 +20,15 @@ class AssignmentController < ApplicationController
   end
 
   def update
-    @assignments2 = Assignment.where(id: session[:id])
-    Assignment.update
+    #@assignments = Assignment.where(id: session[:id])
+    Assignment.update(session[:id])
     # @assignments = Assignment.update(assignment_params)
-    # respond_to do |format|
+     respond_to do |format|
     #  if @assignments.update(assignment_params)
-    #    format.html do
-    #   redirect_to '/assignment/admin'
-    #    end
-    #  end
+        format.html do
+       redirect_to '/assignment/admin'
+        end
+      end
     # end
   end
 

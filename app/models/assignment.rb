@@ -20,15 +20,15 @@ class Assignment < ApplicationRecord
   def show
   end
 
-  def self.update
-    #@assignments = Assignment.where(id: session[:id])
+  def self.update(id)
+    assignment = Assignment.where(id: id)
     #respond_to do |format|
-    #if self.update
-        format.html do
-          redirect_to '/assignment/admin'
-          #end
+    if assignment.update(:mark , :comments)
+      #format.html do
+      #   redirect_to '/assignment/admin'
+      #   end
       end
-      #end
+    #  end
   end
 
   def destroy
