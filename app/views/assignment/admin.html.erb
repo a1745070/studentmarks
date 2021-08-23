@@ -32,7 +32,7 @@
   </div>
   <div class="pusher">
     <div class="ui basic segment">
-      <h3 class="ui header">Application Content</h3>
+      <h3 class="ui header"></h3>
       <div>
         <div class = "ui message">
           <h1 class="ui info header">
@@ -54,9 +54,12 @@
             </div>
           </div>
 
+          <%= link_to '#', class: "ui button" do %>
+            <i class="plus icon"></i>
+            Add new assignment
+          <% end %>
+
           <h2>Results</h2>
-
-
           <table class="ui blue table " style="max-width:700px;">
             <thead>
             <tr>
@@ -80,12 +83,15 @@
                 <div class="ui small basic buttons">
                   <%= link_to "#", class: "ui mini button" do %>
                     <i class="eye icon"></i>
+                    view
                   <% end %>
                   <%= link_to edit_assignment_path(assignment), class: "ui mini button" do %>
                     <i class="edit outline icon"></i>
+                    edit
                   <% end %>
                   <%= link_to "#", method: :destroy, data: { confirm: 'Are you sure?' }, class: "ui mini button" do %>
                     <i class="cancel icon"></i>
+                    delete
                   <% end %>
                 </div>
               </td>
