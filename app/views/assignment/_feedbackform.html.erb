@@ -1,0 +1,12 @@
+<%= form_with model: @assignment , url: assignment_update_path(@assignment) , html: { class: "ui form" }, method: :patch do |form| %>
+
+
+  <div class="field">
+    <%= form.label :feedback %>
+    <%= form.text_area :feedback %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "ui primary button" , name: 'submit' %>
+  </div>
+<% end %>
