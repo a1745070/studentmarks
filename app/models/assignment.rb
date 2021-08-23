@@ -1,6 +1,5 @@
 class Assignment < ApplicationRecord
   belongs_to :user
-
   #self.assignments = "assignments"
 
   def self.admin
@@ -21,14 +20,25 @@ class Assignment < ApplicationRecord
   end
 
   def self.update(id , params)
-    assignment = Assignment.where(id: id)
-    #respond_to do |format|
-    if assignment.update(params)
-      #format.html do
-      #   redirect_to '/assignment/admin'
-      #   end
-      end
-    #  end
+    assignment = Assignment.find_by(id: id)
+    assignment.update_attribute(:mark, params[:mark])
+    assignment.update_attribute(:comments, params[:comments])
+    if assignment.mark < 50
+      assignment.update_attribute(:grade, "F")
+    end
+    if assignment.mark >= 50 && assignment.mark < 65
+      assignment.update_attribute(:grade, "P")
+    end
+    if assignment.mark >= 65 && assignment.mark < 75
+      assignment.update_attribute(:grade, "C")
+    end
+    if assignment.mark >= 75 && assignment.mark < 85
+      assignment.update_attribute(:grade, "D")
+    end
+    if assignment.mark >= 85
+      assignment.update_attribute(:grade, "HD")
+    end
+
   end
 
   def destroy

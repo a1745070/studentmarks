@@ -20,11 +20,8 @@ class AssignmentController < ApplicationController
   end
 
   def update
-    #@assignments = Assignment.where(id: session[:id])
     Assignment.update(session[:id], assignment_params)
-    # @assignments = Assignment.update(assignment_params)
      respond_to do |format|
-    #  if @assignments.update(assignment_params)
         format.html do
        redirect_to '/assignment/admin'
         end
