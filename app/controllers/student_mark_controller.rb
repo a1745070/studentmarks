@@ -1,2 +1,0 @@
-class StudentMarkController < ApplicationController
-end

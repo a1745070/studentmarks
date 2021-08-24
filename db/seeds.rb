@@ -39,7 +39,7 @@ user_list.each do |name, studentid, password, email, authorisationlvl|
 end
 
 student_list.each do |studentid, courseid, grade, mark|
-  StudentMark.create(studentid: studentid, courseid: courseid, grade: grade, mark: mark)
+  Mark.create(studentid: studentid, courseid: courseid, grade: grade, mark: mark)
 end
 
 assignment_list.each do |studentid, courseid, assignmentid, assignmentname, assignmentdescr, grade, mark, comments|

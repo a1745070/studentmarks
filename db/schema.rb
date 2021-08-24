@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_125000) do
+ActiveRecord::Schema.define(version: 2021_08_24_070003) do
+
+  create_table "Roles", force: :cascade do |t|
+    t.string "role"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "assignments", force: :cascade do |t|
     t.string "courseid"
@@ -33,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_125000) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "student_marks", force: :cascade do |t|
+  create_table "marks", force: :cascade do |t|
     t.string "studentid"
     t.string "courseid"
     t.datetime "created_at", precision: 6, null: false
