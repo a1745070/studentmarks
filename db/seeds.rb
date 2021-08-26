@@ -49,7 +49,9 @@ enrolment_list.each do |course_id, user_id|
   Enrolment.create(course_id: course_id, user_id: user_id)
 end
 
-course_list = ["ESAASII","Engineering software as a service is great"]
+course_list = [
+  ["ESAASII","Engineering software as a service is great"]
+]
 
 course_list.each do |coursename, coursedescr|
   Course.create(coursename: coursename, coursedescr: coursedescr)
