@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_045525) do
+ActiveRecord::Schema.define(version: 2021_08_26_105939) do
 
   create_table "Roles", force: :cascade do |t|
     t.string "role"
@@ -20,16 +20,11 @@ ActiveRecord::Schema.define(version: 2021_08_26_045525) do
   end
 
   create_table "assignments", force: :cascade do |t|
-    t.string "courseid"
-    t.string "assignmentid"
     t.string "assignmentname"
     t.text "assignmentdescr"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "grade"
-    t.integer "mark"
-    t.string "comments"
-    t.string "studentid"
+    t.integer "course_id"
   end
 
   create_table "courses", force: :cascade do |t|
