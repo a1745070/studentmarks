@@ -1,5 +1,7 @@
 class Assignment < ApplicationRecord
-  belongs_to :user
+  belongs_to :course
+  has_many :users, through: :tasks
+  has_one :mark
   #self.assignments = "assignments"
 
   def self.admin
