@@ -10,36 +10,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_125000) do
+ActiveRecord::Schema.define(version: 2021_08_26_141205) do
 
-  create_table "assignments", force: :cascade do |t|
-    t.string "courseid"
-    t.string "assignmentid"
-    t.string "assignmentname"
-    t.text "assignmentdescr"
+  create_table "Roles", force: :cascade do |t|
+    t.string "role"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "grade"
-    t.integer "mark"
-    t.string "comments"
-    t.string "studentid"
+  end
+
+  create_table "assignments", force: :cascade do |t|
+    t.integer "course_id"
+    t.string "assignmentname"
+    t.text "assignmentdesc"
+    t.integer "weight"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "courses", force: :cascade do |t|
-    t.string "courseid"
     t.string "coursename"
     t.text "coursedescr"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "student_marks", force: :cascade do |t|
+  create_table "enrolments", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "course_id"
+    t.integer "user_id"
+  end
+
+  create_table "mark_histories", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "mark_id"
+    t.string "grade"
+    t.integer "mark"
+    t.string "comment"
+  end
+
+  create_table "marks", force: :cascade do |t|
     t.string "studentid"
     t.string "courseid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "grade"
     t.integer "mark"
+    t.integer "task_id"
+    t.string "comment"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "assignment_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,7 +76,6 @@ ActiveRecord::Schema.define(version: 2021_08_23_125000) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "authorisationlvl"
   end
 
 end
