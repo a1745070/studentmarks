@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_120747) do
+ActiveRecord::Schema.define(version: 2021_08_26_121544) do
 
   create_table "Roles", force: :cascade do |t|
     t.string "role"
@@ -45,6 +45,9 @@ ActiveRecord::Schema.define(version: 2021_08_26_120747) do
   create_table "mark_histories", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "mark_id"
+    t.string "grade"
+    t.integer "mark"
   end
 
   create_table "marks", force: :cascade do |t|
@@ -54,6 +57,8 @@ ActiveRecord::Schema.define(version: 2021_08_26_120747) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "grade"
     t.integer "mark"
+    t.integer "task_id"
+    t.string "comment"
   end
 
   create_table "tasks", force: :cascade do |t|
