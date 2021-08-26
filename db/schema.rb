@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_121544) do
+ActiveRecord::Schema.define(version: 2021_08_26_123215) do
 
   create_table "Roles", force: :cascade do |t|
     t.string "role"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_08_26_121544) do
     t.integer "mark_id"
     t.string "grade"
     t.integer "mark"
+    t.string "comment"
   end
 
   create_table "marks", force: :cascade do |t|
