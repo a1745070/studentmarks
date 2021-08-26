@@ -7,15 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 
-student_list = [
-  ["a1781637","ESAASII","HD","95"],
-  ["a1783331","ESAASII","D","70"],
-  ["a1773884","ESAASII","P","51"],
-  ["a1884223","ESAASII","F","40"],
-  ["a1772883","ESAASII","C","65"],
-  ["a1882993","ESAASII","D","75"],
-  ["a1223332","ESAASII","HD","100"]
+role_list = [
+  ["1","Student"],
+  ["2","Student"],
+  ["3","Student"],
+  ["4","Student"],
+  ["5","Student"],
+  ["6","Student"],
+  ["7","Course Coordinator"]
 ]
+
+user_list.each do |name, studentid, password, email, authorisationlvl|
+  User.create(name: name, studentid: studentid, password: password, email: email, authorisationlvl: authorisationlvl)
+end
 
 assignment_list = [
   ["a1223332","ESAASII","001","assignment1","agile","P",50,"ok effort"],
