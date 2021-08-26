@@ -8,13 +8,13 @@
 #
 
 role_list = [
-  ["1","Student"],
-  ["2","Student"],
-  ["3","Student"],
-  ["4","Student"],
-  ["5","Student"],
-  ["6","Student"],
-  ["7","Course Coordinator"]
+  [1,"Student"],
+  [2,"Student"],
+  [3,"Student"],
+  [4,"Student"],
+  [5,"Student"],
+  [6,"Student"],
+  [7,"Course Coordinator"]
 ]
 
 role_list.each do |user_id, role|
@@ -36,13 +36,13 @@ user_list.each do |name, studentid, password, email|
 end
 
 enrolment_list = [
-  ["1","1"],
-  ["1","2"],
-  ["1","3"],
-  ["1","4"],
-  ["1","5"],
-  ["1","6"],
-  ["1","7"]
+  [1,1],
+  [1,2],
+  [1,3],
+  [1,4],
+  [1,5],
+  [1,6],
+  [1,7]
 ]
 
 enrolment_list.each do |course_id, user_id|
@@ -56,27 +56,27 @@ course_list.each do |coursename, coursedescr|
 end
 
 assignment_list = [
-  ["1","assignment1","this is assignment 1"],
-  ["1","assignment2","this is assignment 2"]
+  [1,"assignment1","this is assignment 1",50],
+  [1,"assignment2","this is assignment 2",50]
 ]
 
-assignment_list.each do |course_id, assignmentname, assignmentdescr|
-  Assignment.create(course_id: course_id, assignmentname: assignmentname, assignmentdescr: assignmentdescr)
+assignment_list.each do |course_id, assignmentname, assignmentdescr, weight|
+  Assignment.create(course_id: course_id, assignmentname: assignmentname, assignmentdescr: assignmentdescr, weight: weight)
 end
 
 task_list = [
-  ["1","1"],
-  ["1","2"],
-  ["2","1"],
-  ["2","2"],
-  ["3","1"],
-  ["3","2"],
-  ["4","1"],
-  ["4","2"],
-  ["5","1"],
-  ["5","2"],
-  ["6","1"],
-  ["6","2"]
+  [1,1],
+  [1,2],
+  [2,1],
+  [2,2],
+  [3,1],
+  [3,2],
+  [4,1],
+  [4,2],
+  [5,1],
+  [5,2],
+  [6,1],
+  [6,2]
 ]
 
 task_list.each do |user_id, assignment_id|
@@ -84,18 +84,18 @@ task_list.each do |user_id, assignment_id|
 end
 
 mark_list = [
-  ["1","HD","85","Good"],
-  ["2","HD","85","Good"],
-  ["3","HD","85","Good"],
-  ["4","HD","85","Good"],
-  ["5","HD","85","Good"],
-  ["6","HD","85","Good"],
-  ["7","HD","85","Good"],
-  ["8","HD","85","Good"],
-  ["9","HD","85","Good"],
-  ["10","HD","85","Good"],
-  ["11","HD","85","Good"],
-  ["12","HD","85","Good"]
+  [1,"HD",85,"Good"],
+  [2,"HD",85,"Good"],
+  [3,"HD",85,"Good"],
+  [4,"HD",85,"Good"],
+  [5,"HD",85,"Good"],
+  [6,"HD",85,"Good"],
+  [7,"HD",85,"Good"],
+  [8,"HD",85,"Good"],
+  [9,"HD",85,"Good"],
+  [10,"HD",85,"Good"],
+  [11,"HD",85,"Good"],
+  [12,"HD",85,"Good"]
 ]
 
 mark_list.each do |task_id, grade, mark, comment|
