@@ -17,36 +17,87 @@ role_list = [
   ["7","Course Coordinator"]
 ]
 
-user_list.each do |name, studentid, password, email, authorisationlvl|
-  User.create(name: name, studentid: studentid, password: password, email: email, authorisationlvl: authorisationlvl)
+role_list.each do |user_id, role|
+  User.create(user_id: user_id, role: role)
+end
+
+user_list = [
+  ["peter","a1781637","qwerty55","a1781637@student.adelaide.edu.au"],
+  ["bobby","a1783331","bentley","a1783331@student.adelaide.edu.au"],
+  ["ian","a1773884","poggers","a1773884@student.adelaide.edu.au"],
+  ["aniza","a1884223","itsjustamood","a1884223@student.adelaide.edu.au"],
+  ["chris","a1772883","solocarry","a1772883@student.adelaide.edu.au"],
+  ["archie","a1882993","iloveui","a1882993@student.adelaide.edu.au"],
+  ["aufeef","a1223332","admin","a1223332@adelaide.edu.au"]
+]
+
+user_list.each do |name, studentid, password, email|
+  User.create(name: name, studentid: studentid, password: password, email: email)
+end
+
+enrolment_list = [
+  ["1","1"],
+  ["1","2"],
+  ["1","3"],
+  ["1","4"],
+  ["1","5"],
+  ["1","6"],
+  ["1","7"]
+]
+
+enrolment_list.each do |course_id, user_id|
+  Enrolment.create(course_id: course_id, user_id: user_id)
+end
+
+course_list = ["ESAASII","Engineering software as a service is great"]
+
+course_list.each do |coursename, coursedescr|
+  Course.create(coursename: coursename, coursedescr: coursedescr)
 end
 
 assignment_list = [
-  ["a1223332","ESAASII","001","assignment1","agile","P",50,"ok effort"],
-  ["a1882993","ESAASII","002","assignment2","waterfall","P",55,"try better next year"]
+  ["1","assignment1","this is assignment 1"],
+  ["1","assignment2","this is assignment 2"]
 ]
 
-user_list = [
-  ["peter","a1781637","qwerty55","a1781637@student.adelaide.edu.au","0"],
-  ["bobby","a1783331","bentley","a1783331@student.adelaide.edu.au","0"],
-  ["ian","a1773884","poggers","a1773884@student.adelaide.edu.au","0"],
-  ["aniza","a1884223","itsjustamood","a1884223@student.adelaide.edu.au","0"],
-  ["chris","a1772883","solocarry","a1772883@student.adelaide.edu.au","0"],
-  ["archie","a1882993","iloveui","a1882993@student.adelaide.edu.au","0"],
-  ["justin","a1223332","spiritcannon500","a1223332@student.adelaide.edu.au","0"]
+assignment_list.each do |course_id, assignmentname, assignmentdescr|
+  Assignment.create(course_id: course_id, assignmentname: assignmentname, assignmentdescr: assignmentdescr)
+end
+
+task_list = [
+  ["1","1"],
+  ["1","2"],
+  ["2","1"],
+  ["2","2"],
+  ["3","1"],
+  ["3","2"],
+  ["4","1"],
+  ["4","2"],
+  ["5","1"],
+  ["5","2"],
+  ["6","1"],
+  ["6","2"]
 ]
 
-courses_list = ["ESAASII","Engineering software as an additional service","a course"]
-
-user_list.each do |name, studentid, password, email, authorisationlvl|
-  User.create(name: name, studentid: studentid, password: password, email: email, authorisationlvl: authorisationlvl)
+task_list.each do |user_id, assignment_id|
+  Task.create(user_id: user_id, assignment_id: assignment_id)
 end
 
-student_list.each do |studentid, courseid, grade, mark|
-  Mark.create(studentid: studentid, courseid: courseid, grade: grade, mark: mark)
-end
+mark_list = [
+  ["1","HD","85","Good"],
+  ["2","HD","85","Good"],
+  ["3","HD","85","Good"],
+  ["4","HD","85","Good"],
+  ["5","HD","85","Good"],
+  ["6","HD","85","Good"],
+  ["7","HD","85","Good"],
+  ["8","HD","85","Good"],
+  ["9","HD","85","Good"],
+  ["10","HD","85","Good"],
+  ["11","HD","85","Good"],
+  ["12","HD","85","Good"]
+]
 
-assignment_list.each do |studentid, courseid, assignmentid, assignmentname, assignmentdescr, grade, mark, comments|
-  Assignment.create(studentid: studentid, courseid: courseid, assignmentid: assignmentid, assignmentname: assignmentname, assignmentdescr: assignmentdescr, grade: grade, mark: mark, comments: comments)
+mark_list.each do |task_id, grade, mark, comment|
+  Mark.create(task_id: task_id, grade: grade, mark: mark, comment: comment)
 end
-
