@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_105939) do
+ActiveRecord::Schema.define(version: 2021_08_26_120747) do
 
   create_table "Roles", force: :cascade do |t|
     t.string "role"
@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 2021_08_26_105939) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "course_id"
+    t.integer "weight"
   end
 
   create_table "courses", force: :cascade do |t|
-    t.string "courseid"
     t.string "coursename"
     t.text "coursedescr"
     t.datetime "created_at", precision: 6, null: false
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2021_08_26_105939) do
   create_table "enrolments", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "course_id"
+    t.integer "user_id"
   end
 
   create_table "mark_histories", force: :cascade do |t|
@@ -57,6 +59,8 @@ ActiveRecord::Schema.define(version: 2021_08_26_105939) do
   create_table "tasks", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "assignment_id"
   end
 
   create_table "users", force: :cascade do |t|
