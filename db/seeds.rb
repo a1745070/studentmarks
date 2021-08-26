@@ -60,8 +60,8 @@ assignment_list = [
   [1,"assignment2","this is assignment 2",50]
 ]
 
-assignment_list.each do |course_id, assignmentname, assignmentdescr, weight|
-  Assignment.create(course_id: course_id, assignmentname: assignmentname, assignmentdescr: assignmentdescr, weight: weight)
+assignment_list.each do |course_id, assignmentname, assignmentdesc, weight|
+  Assignment.create(course_id: course_id, assignmentname: assignmentname, assignmentdesc: assignmentdesc, weight: weight)
 end
 
 task_list = [
