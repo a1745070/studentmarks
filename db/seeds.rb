@@ -18,7 +18,7 @@ role_list = [
 ]
 
 role_list.each do |user_id, role|
-  User.create(user_id: user_id, role: role)
+  Role.create(user_id: user_id, role: role)
 end
 
 user_list = [
