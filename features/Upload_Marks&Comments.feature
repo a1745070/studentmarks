@@ -6,10 +6,10 @@ After this the student can view their grade and my message
 
 
 Scenario: Lecturer Uploads Marks with Comments
-Given I have students with studentids and courseids
-When I go to assessment marks
-Then I should be able to add a Mark
-And I should be able to add a Comment
+  Given I have students with studentids and courseids
+  When I go to assessment marks
+  Then I should be able to add a Mark
+  And I should be able to add a Comment
 
 Scenario: Lecturer Uploads Marks with Comments (v2)
   Given I am on the admin page
