@@ -70,11 +70,11 @@
             <tbody>
             <% @assignment.each do |assignment| %>
             <tr>
-              <td><%= assignment.id %></td>
-              <td><%= assignment.id %></td>
-              <td><%= assignment.id %></td>
-              <td><%= assignment.id %></td>
-
+              <td><%= assignment.user.studentid %></td>
+              <td><%= assignment.user.name %></td>
+              <td><%= assignment.mark.comment %></td>
+              <td><%= assignment.mark.mark %></td>
+              <td><%= assignment.mark.grade %></td>
               <td class="left aligned">
                 <div class="ui small basic buttons">
                   <%= link_to "#", class: "ui mini button" do %>

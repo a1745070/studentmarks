@@ -3,9 +3,6 @@ class AssignmentController < ApplicationController
   def admin
     #@assignments = Assignment.all
     @assignment = Assignment.admin
-    puts "++++++++++++++++++++++++++++++++++++++++++++++++++++"
-    puts @assignment.task[:id]
-    puts "++++++++++++++++++++++++++++++++++++++++++++++++++++"
     #@joined - User.left_joins(:Assignment).where(studentid: @all_ids, name: @all_students, comments:@all_comments,
     #grades: @all_grades)
   end

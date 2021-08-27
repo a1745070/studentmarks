@@ -1,13 +1,11 @@
 class Assignment < ApplicationRecord
   belongs_to :course
-  has_many :users, through: :tasks
-  has_many :tasks
   has_one :mark
-  #self.assignments = "assignments"
+  has_many :tasks
+  has_many :users, through: :tasks
 
   def self.admin
-    # self.Assignment.all
-    #@assignment = Assignment.all
+    Task.includes(:assignment , :user, :mark).all
 
     #@task = Task.where(assignment_id: 1)
     #@user = User.all
