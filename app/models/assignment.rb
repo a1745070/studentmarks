@@ -7,16 +7,16 @@ class Assignment < ApplicationRecord
 
   def self.admin
     # self.Assignment.all
-    @assignment = Assignment.all
+    #@assignment = Assignment.all
 
     #@task = Task.where(assignment_id: 1)
     #@user = User.all
   end
 
-  def self.create(assignment_params)
-    Assignment.create(assignment_params)
+  #def self.create(assignment_params)
+    #Assignment.create(assignment_params)
     # self.Assignment.new
-  end
+  #end
 
   def edit
     session[:id] = params[:id]
@@ -25,7 +25,7 @@ class Assignment < ApplicationRecord
   def show
   end
 
-  def self.update(id , params)
+  #def self.update(id , params)
     # assignment = Assignment.find_by(id: id)
     # assignment.update_attribute(:mark, params[:mark])
     # assignment.update_attribute(:comments, params[:comments])
@@ -45,7 +45,7 @@ class Assignment < ApplicationRecord
     #  assignment.update_attribute(:grade, "HD")
     #end
 
-  end
+  #end
 
   def destroy
     #respond_to do |format|
@@ -54,9 +54,9 @@ class Assignment < ApplicationRecord
     #end
   end
 
-  def assignment_params
+  #def assignment_params
     #params.permit(:courseid, :assignmentid, :assignmentname, :assignmentdescr, :grade, :mark, :comments)
-    params.permit(:course_id, :assignmentname, :assignmentdesc, :weight)
-  end
+  #params.permit(:course_id, :assignmentname, :assignmentdesc, :weight)
+  #end
 
 end
