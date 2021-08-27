@@ -38,7 +38,8 @@ class AssignmentController < ApplicationController
   end
 
   def assignment_params
-    params.permit(:courseid, :assignmentid, :assignmentname, :assignmentdescr, :grade, :mark, :comments)
+    #params.permit(:courseid, :assignmentid, :assignmentname, :assignmentdescr, :grade, :mark, :comments)
+    params.permit(:course_id, :assignmentname, :assignmentdesc, :weight)
   end
 
 end
