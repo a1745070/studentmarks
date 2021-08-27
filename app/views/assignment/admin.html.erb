@@ -41,6 +41,7 @@
           </h1>
           <p></p>
           Assignment
+          <!--
           <div class="ui selection dropdown">
             <input type="hidden" name=“assignment”>
             <i class="dropdown icon"></i>
@@ -50,6 +51,21 @@
               <div class="item" data-value=“ASSIGNMENT”>ASSIGNMENT</div>
               <div class="item" data-value=“TUTORIAL”>TUTORIAL</div>
               <div class="item" data-value=“WORKSHOP”>WORKSHOP</div>
+            </div>
+          </div>
+
+          -->
+
+
+          <div class="ui form">
+            <div class="field">
+              <label>Assignment</label>
+              <!-- <i class="dropdown icon"></i> -->
+              <select label="assignment" class="ui search dropdown">
+                <% @assignment.each do |assignment| %>
+                  <option><%= assignment.assignment.assignmentname %>></option>
+                <% end %>
+              </select>
             </div>
           </div>
 

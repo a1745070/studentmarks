@@ -6,7 +6,7 @@ class Assignment < ApplicationRecord
 
   def self.admin
     Task.includes(:assignment , :user, :mark).all
-
+    #Assignment.assignmentname
     #@task = Task.where(assignment_id: 1)
     #@user = User.all
   end
