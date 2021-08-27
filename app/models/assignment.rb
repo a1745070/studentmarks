@@ -6,7 +6,7 @@ class Assignment < ApplicationRecord
 
   def self.admin
     # self.Assignment.all
-    @assignments = Assignment.all
+    @task = Task.where(assignment_id: 1)
   end
 
   def self.create(assignment_params)
@@ -52,7 +52,7 @@ class Assignment < ApplicationRecord
 
   def assignment_params
     #params.permit(:courseid, :assignmentid, :assignmentname, :assignmentdescr, :grade, :mark, :comments)
-    # params.permit(:course_id, :assignmentname, :assignmentdesc, :weight)
+    params.permit(:course_id, :assignmentname, :assignmentdesc, :weight)
   end
 
 end
