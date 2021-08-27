@@ -2,7 +2,8 @@ class AssignmentController < ApplicationController
 
   def admin
     #@assignments = Assignment.all
-    @assignment = Assignment.admin
+    session[:id] = params[:id]
+    @assignment = Assignment.admin(session[:id])
     #@joined - User.left_joins(:Assignment).where(studentid: @all_ids, name: @all_students, comments:@all_comments,
     #grades: @all_grades)
   end

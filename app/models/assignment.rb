@@ -4,8 +4,8 @@ class Assignment < ApplicationRecord
   has_many :tasks
   has_many :users, through: :tasks
 
-  def self.admin
-    Task.includes(:assignment , :user, :mark).all
+  def self.admin(session)
+    Task.includes(:assignment , :user, :mark).find_by(session)
     #Assignment.assignmentname
     #@task = Task.where(assignment_id: 1)
     #@user = User.all
