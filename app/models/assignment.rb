@@ -1,12 +1,16 @@
 class Assignment < ApplicationRecord
   belongs_to :course
   has_many :users, through: :tasks
+  has_many :tasks
   has_one :mark
   #self.assignments = "assignments"
 
   def self.admin
     # self.Assignment.all
-    @task = Task.where(assignment_id: 1)
+    @assignment = Assignment.all
+
+    #@task = Task.where(assignment_id: 1)
+    #@user = User.all
   end
 
   def self.create(assignment_params)
