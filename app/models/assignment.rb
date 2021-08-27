@@ -6,13 +6,13 @@ class Assignment < ApplicationRecord
 
   def self.admin
     # self.Assignment.all
-    #@assignments = Assignment.all
+    @assignments = Assignment.all
   end
 
-  #def self.create
-    #Assignment.create(assignment_params)
+  def self.create(assignment_params)
+    Assignment.create(assignment_params)
     # self.Assignment.new
-  #end
+  end
 
   def edit
     session[:id] = params[:id]
@@ -52,6 +52,7 @@ class Assignment < ApplicationRecord
 
   def assignment_params
     #params.permit(:courseid, :assignmentid, :assignmentname, :assignmentdescr, :grade, :mark, :comments)
+    # params.permit(:course_id, :assignmentname, :assignmentdesc, :weight)
   end
 
 end

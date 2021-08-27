@@ -40,7 +40,6 @@
             Course Coordinator View
           </h1>
           <p></p>
-
           Assignment
           <div class="ui selection dropdown">
             <input type="hidden" name=“assignment”>
@@ -71,11 +70,16 @@
             <tbody>
             <% @assignments.each do |assignment| %>
             <tr>
-              <td><%= assignment.studentid %></td>
+              <!-- <td>%= assignment.studentid %</td> -->
               <td>name</td>
-              <td><%= assignment.comments %></td>
-              <td><%= assignment.mark %></td>
-              <td><%= assignment.grade %></td>
+              <!-- <td>%= assignment.comments %</td> -->
+              <!-- <td>%= assignment.mark %</td> -->
+             <!-- <td><= assignment.grade %</td> -->
+              <td><%= assignment.course_id %></td>
+              <td><%= assignment.assignmentname %></td>
+              <td><%= assignment.assignmentdesc %></td>
+              <td><%= assignment.weight %></td>
+
               <td class="left aligned">
                 <div class="ui small basic buttons">
                   <%= link_to "#", class: "ui mini button" do %>
