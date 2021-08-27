@@ -7,6 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 
+user_list = [
+  ["peter","a1781637","qwerty55","a1781637@student.adelaide.edu.au"],
+  ["bobby","a1783331","bentley","a1783331@student.adelaide.edu.au"],
+  ["ian","a1773884","poggers","a1773884@student.adelaide.edu.au"],
+  ["aniza","a1884223","itsjustamood","a1884223@student.adelaide.edu.au"],
+  ["chris","a1772883","solocarry","a1772883@student.adelaide.edu.au"],
+  ["archie","a1882993","iloveui","a1882993@student.adelaide.edu.au"],
+  ["aufeef","a1223332","admin","a1223332@adelaide.edu.au"]
+]
+
+user_list.each do |name, studentid, password, email|
+  User.create(name: name, studentid: studentid, password: password, email: email)
+end
+
 role_list = [
   [1,"Student"],
   [2,"Student"],
@@ -21,19 +35,15 @@ role_list.each do |user_id, role|
   Role.create(user_id: user_id, role: role)
 end
 
-user_list = [
-  ["peter","a1781637","qwerty55","a1781637@student.adelaide.edu.au"],
-  ["bobby","a1783331","bentley","a1783331@student.adelaide.edu.au"],
-  ["ian","a1773884","poggers","a1773884@student.adelaide.edu.au"],
-  ["aniza","a1884223","itsjustamood","a1884223@student.adelaide.edu.au"],
-  ["chris","a1772883","solocarry","a1772883@student.adelaide.edu.au"],
-  ["archie","a1882993","iloveui","a1882993@student.adelaide.edu.au"],
-  ["aufeef","a1223332","admin","a1223332@adelaide.edu.au"]
-]
+ course_list = [
+   ["ESAASI","Engineering software as a service is great"],
+   ["ESAASII","Engineering software as a service is great"]
+ ]
 
-user_list.each do |name, studentid, password, email|
-  User.create(name: name, studentid: studentid, password: password, email: email)
-end
+course_list.each do |coursename, coursedesc|
+   Course.create(coursename: coursename, coursedesc: coursedesc)
+ end
+
 
 enrolment_list = [
   [1,1],
@@ -49,17 +59,10 @@ enrolment_list.each do |course_id, user_id|
   Enrolment.create(course_id: course_id, user_id: user_id)
 end
 
-course_list = [
-  ["ESAASII","Engineering software as a service is great"]
-]
-
-course_list.each do |coursename, coursedescr|
-  Course.create(coursename: coursename, coursedescr: coursedescr)
-end
 
 assignment_list = [
-  [1,"assignment1","this is assignment 1",50],
-  [1,"assignment2","this is assignment 2",50]
+  [1 , "assignment1" , "this is assignment 1" , 50],
+  [1 , "assignment2" , "this is assignment 2" , 50]
 ]
 
 assignment_list.each do |course_id, assignmentname, assignmentdesc, weight|
