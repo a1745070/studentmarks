@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'calendar/calendar'
   get 'lectures/lectures'
   get 'discussion/discussion'
   get 'exams/exams'
