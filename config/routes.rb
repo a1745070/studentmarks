@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'exams/exams'
   get 'assignments/assignments'
   get 'modules/modules'
   get 'annoucement/hello'
