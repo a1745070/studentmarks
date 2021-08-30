@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root 'assignment#admin'
   get '/assignment/student', to: "assignment#student"
   get '/assignment/feedback', to: "assignment#feedback"
-  # add routes later to the html.erb
   get '/assignment/admin' => 'assignment#admin'
   patch '/assignment/update' => 'assignment#update'
+  get '/user/export_csv' => 'user#export_csv'
   resources :student_mark
   resources :assignment
   resources :course
