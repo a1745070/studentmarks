@@ -1,5 +1,5 @@
 Given(/^I am on the admin page$/) do
-  pending
+  visit root_path
 end
 
 When(/^I click on "([^"]*)"$/) do |arg|
