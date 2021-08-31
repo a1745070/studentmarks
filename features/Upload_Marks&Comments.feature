@@ -7,7 +7,7 @@ After this the student can view their grade and my message
 
 Scenario: Lecturer Uploads Marks with Comments (v2)
   Given I am on the admin page
-  When I click on "upload marks"
+  When I click "upload marks"
   And  I add "60" into "mark"
   And  I add "ok" into "comments"
   And  I click "submit"
