@@ -13,3 +13,7 @@ end
 Then(/^I should see "([^"]*)" in "([^"]*)"$/) do |arg1, arg2|
   expect(arg2).to have_content(arg1)
 end
+
+Then(/^I should not see "([^"]*)" in "([^"]*)"$/) do |arg1, arg2|
+  expect(arg2).not_to have_content(arg1)
+end
