@@ -79,8 +79,9 @@ class AssignmentController < ApplicationController
   end
 
   def update
-    @why = params[:id]
-    puts @why
+    puts '++++++++++ whats aparams'
+    puts session[:id]
+    params[:id] = session[:id]
     Assignment.update(params[:id], assignment_params)
      respond_to do |format|
         format.html do
@@ -100,7 +101,7 @@ class AssignmentController < ApplicationController
 
   def assignment_params
     #params.permit(:courseid, :assignmentid, :assignmentname, :assignmentdescr, :grade, :mark, :comments)
-    params.permit(:course_id, :assignmentname, :assignmentdesc, :weight)
+    params.permit(:course_id, :assignmentname, :assignmentdesc, :weight, :mark, :comment, :id, :grade)
   end
 
 end

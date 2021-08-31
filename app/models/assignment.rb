@@ -58,27 +58,50 @@ class Assignment < ApplicationRecord
   def show
   end
 
-  #def self.update(id , params)
-    # assignment = Assignment.find_by(id: id)
-    # assignment.update_attribute(:mark, params[:mark])
-    # assignment.update_attribute(:comments, params[:comments])
-    # if assignment.mark < 50
-    #   assignment.update_attribute(:grade, "F")
-    #  end
-    # if assignment.mark >= 50 && assignment.mark < 65
-    #  assignment.update_attribute(:grade, "P")
-    # end
-    #if assignment.mark >= 65 && assignment.mark < 75
-    # assignment.update_attribute(:grade, "C")
-    #end
-    #if assignment.mark >= 75 && assignment.mark < 85
-    #  assignment.update_attribute(:grade, "D")
-    #end
-    #if assignment.mark >= 85
-    #  assignment.update_attribute(:grade, "HD")
-    #end
+  def self.update(id , params)
+     assignment = Mark.find_by(task_id: id)
 
-  #end
+     if assignment == nil
+       puts 'why???? tho'
+     end
+     assignment.update_attribute(:mark, params[:mark])
+     assignment.update_attribute(:comment, params[:comment])
+
+     params[:mark] = params[:mark].to_i
+
+     if params[:mark] < 50
+       assignment.update_attribute(:grade, "F")
+     end
+     if params[:mark] >= 50 && params[:mark] < 65
+       assignment.update_attribute(:grade, "P")
+     end
+     if params[:mark] >= 65 && params[:mark] < 75
+       assignment.update_attribute(:grade, "C")
+     end
+     if params[:mark] >= 75 && params[:mark] < 85
+       assignment.update_attribute(:grade, "D")
+     end
+     if params[:mark] >= 85
+       assignment.update_attribute(:grade, "HD")
+     end
+
+     #if assignment.mark < 50
+     #  assignment.update_attribute(:grade, "F")
+     # end
+     #if assignment.mark >= 50 && assignment.mark < 65
+     # assignment.update_attribute(:grade, "P")
+     #end
+     #if assignment.mark >= 65 && assignment.mark < 75
+     #assignment.update_attribute(:grade, "C")
+     #end
+     #if assignment.mark >= 75 && assignment.mark < 85
+     # assignment.update_attribute(:grade, "D")
+     #end
+     #if assignment.mark >= 85
+     # assignment.update_attribute(:grade, "HD")
+     #end
+
+  end
 
   def destroy
     #respond_to do |format|
