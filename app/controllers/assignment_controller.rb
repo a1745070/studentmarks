@@ -24,7 +24,14 @@ class AssignmentController < ApplicationController
       end
 
       #@currentassignment = @assignment.where({ id: haha}).first
-      @currentassignment = @assignment.first
+      @title = ""
+      @assignment.each do |help|
+        @title = help.assignment.assignmentname
+      end
+
+      @currentassignment = @title
+
+      #@currentassignment = @assignment.assignment.assignmentname.first
       puts 'ARE WE STILL FRIENDS?'
       puts @currentassignment
 
