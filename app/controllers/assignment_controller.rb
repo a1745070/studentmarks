@@ -1,26 +1,41 @@
 class AssignmentController < ApplicationController
 
-  #def goto
+  def goto
     #@allassignments = Assignment.goto
-    #end
+    puts '++++Params id+++++++'
+    puts '+++++++HAHAHAH FDSGFHDSHF'
+    haha = params[:id]
+    @assignment = Assignment.goto(haha)
+    self.admin(@assignment)
+    redirect_to :assignment_admin
+  end
 
   def admin
     #@assignments = Assignment.all
     #session[:id] = params[:id]
     #id = -1
-    @assignment = Assignment.admin
-    puts 'pls work'
-    puts session[:id]
-    puts 'haha'
+    haha = params[:id]
+
+    if params.has_key?(:id)
+      @assignment = Assignment.admin(haha)
+
+      # why the hell is it nil :)
+      if @assignment == nil
+        puts 'BRUHHHH momnetsnds'
+      end
+
+      puts @assignment
+    else
+      @assignment = Assignment.admin(-1)
+    end
+    #@assignment = Assignment.admin
+    #puts 'pls work'
+    #puts params[:id]
+    #puts 'haha'
+
+
     #@allassignments = Assignment.admin(id)
     # puts @allassignments
-
-    if session[:id] == 1
-      #@assignment = Assignment.admin(session[:id])
-      puts 'hahahahha wtf'
-      # @allassignments = Assignment.admin(id)
-      #puts @allassignments
-    end
 
     #@joined - User.left_joins(:Assignment).where(studentid: @all_ids, name: @all_students, comments:@all_comments,
     #grades: @all_grades)
