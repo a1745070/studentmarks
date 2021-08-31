@@ -1,2 +1,28 @@
-<h1>Lectures#lectures</h1>
-<p>Find me in app/views/lectures/lectures.html.erb</p>
+<p>
+  .
+
+</p>
+
+<br>
+<!--  <div class="ui bottom attached segment pushable">  -->
+
+<div class="pusher">
+  <div class="ui basic segment">
+    <div>
+      <div class = "ui message">
+        <h1 class="ui info header">
+          <h1>Lectures</h1>
+          <iframe width="420" height="315"
+                  src="https://www.youtube.com/embed/k6U-i4gXkLM">
+          </iframe>
+      </div>
+</div>
+</div>
+</div>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
