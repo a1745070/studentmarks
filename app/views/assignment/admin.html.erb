@@ -60,8 +60,13 @@
               <label>Assignment</label>
               <!-- <i class="dropdown icon"></i> -->
               <select label="assignment" class="ui search dropdown">
-                <% @assignment.each do |assignment| %>
-                  <option><%= assignment.assignment.assignmentname %>></option>
+                <% @allassignments.each do |assignment| %>
+                    <option><%= assignment.assignmentname %></option>
+                      <div class="ui basic buttons">
+                        <%= link_to assignment_admin_url(:id => assignment.id) do %>
+                          <i class="chevron left icon"></i>submit
+                        <% end %>
+                      </div>
                 <% end %>
               </select>
             </div>
@@ -84,7 +89,7 @@
             <tbody>
             <% @assignment.each do |assignment| %>
             <tr>
-              <td><%= assignment.user.studentid %></td>
+              <td><%= assignment.users.studentid %></td>
               <td><%= assignment.user.name %></td>
               <td><%= assignment.mark.comment %></td>
               <td><%= assignment.mark.mark %></td>

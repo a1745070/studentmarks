@@ -5,11 +5,26 @@ class Assignment < ApplicationRecord
   has_many :users, through: :tasks
 
   def self.admin(session)
-    Task.includes(:assignment , :user, :mark).find_by(session)
+    #Task.includes(:assignment , :user, :mark).find_by_id(id: session)
+
+    if session == -1
+      @assignment = Task.includes(:assignment , :user, :mark).all
+      #@allassignments = Assignment.all
+      @allassignments = Task.includes(:assignment , :user, :mark).all
+    end
+
+    # @allassignments = Assignment.all
+    @allassignments = Task.includes(:assignment , :user, :mark).all
+    @assignment = Task.includes(:assignment , :user, :mark).find_by(assignment_id: session)
     #Assignment.assignmentname
     #@task = Task.where(assignment_id: 1)
     #@user = User.all
   end
+
+  #def self.admin
+    #@assignment = Task.includes(:assignment , :user, :mark).all
+    #@allassignments = Assignment.all
+    #end
 
   #def self.create(assignment_params)
     #Assignment.create(assignment_params)
