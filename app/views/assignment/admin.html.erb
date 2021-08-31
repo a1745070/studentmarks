@@ -58,19 +58,36 @@
           <div class="ui form">
             <div class="field">
               <label>Assignment</label>
-              <%= select("assignmentname", "id", Assignment.all.collect {|p| [ p.assignmentname, @ok = p.id ] }, { include_blank: true }) %>
+              <!-- <= form_tag(assignment_admin_url(id: assignment.id)) do -%>
+                <= select_tag "id", options_for_select(Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, selected: :id) %>
+                  <= submit_tag "SUBMITTT" %>
+                < end %>
+                -->
+              <%= form_tag assignment_admin_url(id: params[:id]), method: "post" do %>
+              <!-- <= select("assignmentname", "id", Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, {:selected => @sigh}, { include_blank: true }) %> -->
+              <%= select_tag "id", options_for_select(Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, selected: :id , include_blank: true) %>
+              <!-- <= collection_select(:id, :assignmentname, Assignment.all, :id, :assignmentname) %> -->
+                <!-- <= select("assignmentname", "id", Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, {:selected => params[:id]}, { include_blank: true }) %> -->
+              <!-- <= select_tag "assignment", options_for_select(@haha, :selected) %> -->
+              <!-- < puts 'KANYE WEST++++' %>
+                < puts :selected %> -->
               <!-- <select label="assignment" class="ui search dropdown">
                 < @assignment.each do |assignment| %>
                     <option> name: <= assignment.assignment.assignmentname %> < @ok = assignment.assignment.id %></option>
                 < end %>
               </select>
               -->
-              <button class="ui button">
-                <%= button_to "Submit", assignment_admin_url(:id => @ok), :method => :post %>
-              </button>
+                <%= submit_tag "Submit" , class: 'ui button'  %>
+               <% end %>
+              <% params[:id] = nil %>
             </div>
           </div>
 
+          <% if @currentassignment == "All Assignments"%>
+            <h3>Assignment: <%= @currentassignment %> </h3>
+            <% else %>
+            <h3>Assignment: </h3>
+          <% end %>
           <h2>Results</h2>
 
           <table class="ui blue table " style="max-width:700px;">

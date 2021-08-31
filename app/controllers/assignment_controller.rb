@@ -1,14 +1,14 @@
 class AssignmentController < ApplicationController
 
-  def goto
+  #def goto
     #@allassignments = Assignment.goto
-    puts '++++Params id+++++++'
-    puts '+++++++HAHAHAH FDSGFHDSHF'
-    haha = params[:id]
-    @assignment = Assignment.goto(haha)
-    self.admin(@assignment)
-    redirect_to :assignment_admin
-  end
+  #  puts '++++Params id+++++++'
+  #  puts '+++++++HAHAHAH FDSGFHDSHF'
+  #  haha = params[:id]
+  #  @assignment = Assignment.goto(haha)
+  #  self.admin(@assignment)
+  #  redirect_to :assignment_admin
+  #end
 
   def admin
     #@assignments = Assignment.all
@@ -19,15 +19,28 @@ class AssignmentController < ApplicationController
     if params.has_key?(:id)
       @assignment = Assignment.admin(haha)
 
-      # why the hell is it nil :)
       if @assignment == nil
-        puts 'BRUHHHH momnetsnds'
+        #puts 'im stupid as hell'
       end
 
-      puts @assignment
+      #@currentassignment = @assignment.where({ id: haha}).first
+      @currentassignment = @assignment.first
+      puts 'ARE WE STILL FRIENDS?'
+      puts @currentassignment
+
+      #User.where({ name: "Joe", email: "joe@example.com" })
+      # SELECT * FROM users WHERE name = 'Joe' AND email = 'joe@example.com'
+
+      #puts 'WHAT IS ID BEING RECEIVED: '
+      #puts haha
+      #puts '+++++++'
+
     else
       @assignment = Assignment.admin(-1)
+      @currentassignment = "All Assignments"
     end
+
+    params[:id] = nil
     #@assignment = Assignment.admin
     #puts 'pls work'
     #puts params[:id]

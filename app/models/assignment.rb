@@ -4,11 +4,11 @@ class Assignment < ApplicationRecord
   has_many :tasks
   has_many :users, through: :tasks
 
-  def self.goto(id)
+  #def self.goto(id)
     #Assignment.all
     #redirect_to :admin
-    Task.includes(:assignment , :user, :mark).find_by(id: id)
-  end
+  #  Task.includes(:assignment , :user, :mark).find_by(id: id)
+  #end
 
   def self.admin(id)
     #Task.includes(:assignment , :user, :mark).find_by_id(id: session)
@@ -18,7 +18,7 @@ class Assignment < ApplicationRecord
     if id == -1
       Task.includes(:assignment , :user, :mark).all
     else
-      Task.includes(:assignment , :user, :mark).find_by(assignment_id: id, id:1, user_id:1)
+      Task.includes(:assignment , :user, :mark).where(assignment_id: id)
     end
     #Task.includes(:assignment , :user, :mark).find_by(id: id)
     #if session == -1
