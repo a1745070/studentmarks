@@ -1,19 +1,25 @@
 class AssignmentController < ApplicationController
 
+  #def goto
+    #@allassignments = Assignment.goto
+    #end
+
   def admin
     #@assignments = Assignment.all
-    session[:id] = params[:id]
+    #session[:id] = params[:id]
+    #id = -1
+    @assignment = Assignment.admin
+    puts 'pls work'
+    puts session[:id]
+    puts 'haha'
+    #@allassignments = Assignment.admin(id)
+    # puts @allassignments
 
-      id = -1
-      @assignment = Assignment.admin(id)
-      @allassignments = Assignment.admin(id)
-      puts @allassignments
-
-
-    if session[:id]
-      @assignment = Assignment.admin(session[:id])
-      @allassignments = Assignment.admin(id)
-      puts @allassignments
+    if session[:id] == 1
+      #@assignment = Assignment.admin(session[:id])
+      puts 'hahahahha wtf'
+      # @allassignments = Assignment.admin(id)
+      #puts @allassignments
     end
 
     #@joined - User.left_joins(:Assignment).where(studentid: @all_ids, name: @all_students, comments:@all_comments,
@@ -38,7 +44,9 @@ class AssignmentController < ApplicationController
   end
 
   def update
-    Assignment.update(session[:id], assignment_params)
+    @why = params[:id]
+    puts @why
+    Assignment.update(params[:id], assignment_params)
      respond_to do |format|
         format.html do
        redirect_to '/assignment/admin'
