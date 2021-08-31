@@ -11,21 +11,22 @@
 </head>
 
 <body>
+
 <div class="ui top inverted fixed menu">
   <div class="item inverted">
     <h3><%=link_to 'Student Marks System', user_index_path %></h3>
   </div>
 
+
   <div class ="item">
 
-    <%= link_to href="/assignment/admin", class:"ui secondary button" do%>
+    <%= link_to href="/assignment/admin", class:"ui secondary button" do%> Course Coordinator View
       <i class="user md icon"></i>
-      Course Coordinator View
     <% end %>
 
     <%= link_to href="/assignment/student", class:"ui secondary button" do%>
-      <i class="user icon"></i>
       Student View
+        <i class="user icon"></i>
     <% end %>
   </div>
 

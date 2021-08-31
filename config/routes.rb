@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'calendar/calendar'
+  get 'lectures/lectures'
+  get 'discussion/discussion'
+  get 'exams/exams'
+  get 'assignments/assignments'
+  get 'modules/modules'
+  get 'annoucement/hello'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'assignment#admin'
   get '/assignment/student', to: "assignment#student"

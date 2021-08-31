@@ -1,35 +1,52 @@
 <br>
-<div class="ui bottom attached segment pushable">
+<!--  <div class="ui bottom attached segment pushable">  -->
+   
   <div class="ui visible inverted left vertical sidebar menu">
+  <%=image_tag("gallery/uniadelaide.jpg",  :size => "260x200", :align => "left")%>   
+
+   <i class="grey bullhorn icon"></i>
+   <button class="ui inverted grey button"><%= link_to "ANNOUCEMENT", annoucement_hello_path %></button> 
+     
+
     <a class="item">
-      <i class="bullhorn icon"></i>
-      <button class="ui inverted white button">ANNOUCEMENTS</button>
     </a>
+     
+    <i class="blue book icon"></i><button class="ui inverted primary button"><%= link_to "MODULES", modules_modules_path %></button>
+    
     <a class="item">
-      <i class="book icon"></i>
-      <button class="ui inverted primary button">MODULES</button>
     </a>
+
+    <i class="green edit icon"></i>
+    <button class="ui inverted green button"><%= link_to "ASSIGNMENTS", assignments_assignments_path %></button>
+    
     <a class="item">
-      <i class="edit icon"></i>
-      <button class="ui inverted green button">ASSIGNMENTS</button>
     </a>
+
+    <i class="red clipboard icon"></i>
+    <button class="ui inverted red button"><%= link_to "EXAMS", exams_exams_path %></button>
+
     <a class="item">
-      <i class="clipboard icon"></i>
-      <button class="ui inverted red button">EXAMS</button>
     </a>
+
+    <i class="orange comment icon"></i>
+    <button class="ui inverted orange button"><%= link_to "DISCUSSION", discussion_discussion_path %></button>
+
     <a class="item">
-      <i class="comment icon"></i>
-      <button class="ui inverted orange button">DISCUSSION</button>
     </a>
+
+    <i class="yellow video icon"></i>
+    <button class="ui inverted yellow button"><%= link_to "LECTURES", lectures_lectures_path %></button>
+
     <a class="item">
-      <i class="video icon"></i>
-      <button class="ui inverted yellow button">LECTURES</button>
     </a>
-    <a class="item">
-      <i class="calendar icon"></i>
-      <button class="ui inverted pink button">CALENDAR</button>
-    </a>
+
+    <i class="pink calendar icon"></i>
+    <button class="ui inverted pink button"><%= link_to "CALENDAR", calendar_calendar_path %></button>
+
   </div>
+
+
+
   <div class="pusher">
     <div class="ui basic segment">
       <h3 class="ui header">Application Content</h3>
