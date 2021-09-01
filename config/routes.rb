@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'sign_up/signup'
+  post 'sign_up/newUser' => 'sign_up#newUser'
+  get 'login/login'
   get 'calendar/calendar'
   get 'lectures/lectures'
   get 'discussion/discussion'

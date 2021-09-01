@@ -30,4 +30,15 @@ class User < ApplicationRecord
       end
     end
   end
+   def self.create(user_params)
+    # User.create(user_params)
+   user = User.new
+   user.name = "Dave"
+   user.studentid = "123"
+   user.email = "dave@gmail.com"
+   user.password = "dv"
+   user.save
+  end
 end
+
+

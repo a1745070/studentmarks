@@ -1,0 +1,31 @@
+<h1>SignUp#signup</h1>
+
+<p>Find me in app/views/sign_up/signup.html.erb</p>
+
+<%= form_with model: @user, url: sign_up_newUser_path(@user) ,html: { class: "ui form" }, method: :post do |form| %>
+
+  <div class="field">
+    <%= form.label :name%>
+    <%= form.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :studentid%>
+    <%= form.text_field :studentid %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :email%>
+    <%= form.text_field :email%>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.text_field :password%>
+  </div>
+  <br>
+  <br>
+  <div class="actions">
+    <%= form.submit "SIGN UP", name: "submit", class: "ui primary button"%>
+  </div>
+<% end %>
