@@ -75,22 +75,37 @@
           <div class="ui form">
             <div class="field">
               <label>Assignment</label>
-              <!-- <i class="dropdown icon"></i> -->
-              <select label="assignment" class="ui search dropdown">
-                <% @allassignments.each do |assignment| %>
-                    <option><%= assignment.assignmentname %></option>
-                      <div class="ui basic buttons">
-                        <%= link_to assignment_admin_url(:id => assignment.id) do %>
-                          <i class="chevron left icon"></i>submit
-                        <% end %>
-                      </div>
-                <% end %>
+              <!-- <= form_tag(assignment_admin_url(id: assignment.id)) do -%>
+                <= select_tag "id", options_for_select(Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, selected: :id) %>
+                  <= submit_tag "SUBMITTT" %>
+                < end %>
+                -->
+              <%= form_tag assignment_admin_url(id: params[:id]), method: "post" do %>
+              <!-- <= select("assignmentname", "id", Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, {:selected => @sigh}, { include_blank: true }) %> -->
+              <%= select_tag "id", options_for_select(Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, selected: :id , include_blank: true) %>
+              <!-- <= collection_select(:id, :assignmentname, Assignment.all, :id, :assignmentname) %> -->
+                <!-- <= select("assignmentname", "id", Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, {:selected => params[:id]}, { include_blank: true }) %> -->
+              <!-- <= select_tag "assignment", options_for_select(@haha, :selected) %> -->
+              <!-- < puts 'KANYE WEST++++' %>
+                < puts :selected %> -->
+              <!-- <select label="assignment" class="ui search dropdown">
+                < @assignment.each do |assignment| %>
+                    <option> name: <= assignment.assignment.assignmentname %> < @ok = assignment.assignment.id %></option>
+                < end %>
               </select>
+              -->
+                <%= submit_tag "Submit" , class: 'ui button'  %>
+               <% end %>
+              <% params[:id] = nil %>
             </div>
           </div>
 
+          <% if @currentassignment == "All Assignments"%>
+            <h3>Assignment: <%= @currentassignment %> </h3>
+            <% else %>
+            <h3>Assignment: <%= @currentassignment %></h3>
+          <% end %>
           <h2>Results</h2>
-
 
           <table class="ui blue table " style="max-width:700px;">
             <thead>
@@ -106,7 +121,7 @@
             <tbody>
             <% @assignment.each do |assignment| %>
             <tr>
-              <td><%= assignment.users.studentid %></td>
+              <td><%= assignment.user.studentid %></td>
               <td><%= assignment.user.name %></td>
               <td><%= assignment.mark.comment %></td>
               <td><%= assignment.mark.mark %></td>
