@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'modules/modules'
   get 'annoucement/hello'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'user#login'
+  get 'user/login' => 'user#login'
   get '/user/index', to: "user#login"
   get '/assignment/student', to: "assignment#student"
   get '/assignment/feedback', to: "assignment#feedback"
