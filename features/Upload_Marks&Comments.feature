@@ -5,7 +5,7 @@ I want to fill in a text box while submitting their grade.
 After this the student can view their grade and my message
 
 
-Scenario: Lecturer Uploads Marks with Comments (happy case)
+Scenario: Lecturer uploads marks with comments (happy case)
   Given I am on the admin page
   When I click "upload marks"
   And  I add "60" into "mark"
@@ -14,7 +14,7 @@ Scenario: Lecturer Uploads Marks with Comments (happy case)
   Then I should see "60" in "mark"
   And I should see "ok" in "comments"
 
-Scenario: Lecturer Uploads Marks with Comments & mark below 0 (sad case 1)
+Scenario: Lecturer uploads mark below 0 with comments (sad case 1)
   Given I am on the admin page
   When I click "upload marks"
   And  I add "-1" into "mark"
@@ -25,7 +25,7 @@ Scenario: Lecturer Uploads Marks with Comments & mark below 0 (sad case 1)
   And I should see "0" in "mark"
   And I should see "fail" in "comments"
 
-Scenario: Lecturer Uploads Marks with Comments & mark above 100 (sad case 2)
+Scenario: Lecturer uploads mark above 100 with comments (sad case 2)
   Given I am on the admin page
   When I click "upload marks"
   And  I add "101" into "mark"
@@ -36,7 +36,7 @@ Scenario: Lecturer Uploads Marks with Comments & mark above 100 (sad case 2)
   And I should see "100" in "mark"
   And I should see "good work" in "comments"
 
-Scenario: Lecturer Uploads Marks with Comments & too many characters (max 100 char) (sad case 3)
+Scenario: Lecturer uploads mark with comments that have too many characters (max 100 char) (sad case 3)
   Given I am on the admin page
   When I click "upload marks"
   And  I add "100" into "mark"
@@ -46,3 +46,14 @@ Scenario: Lecturer Uploads Marks with Comments & too many characters (max 100 ch
   And I should see "too many characters (max 100)"
   And I should not see "good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work " in "comments"
   And I should see "good work good work good work good work good work good work good work good work good work good work " in "comments"
+
+Scenario: Lecturer uploads invalid mark with comments (sad case 4)
+  Given I am on the admin page
+  When I click "upload marks"
+  And  I add "absf" into "mark"
+  And  I add "good work" into "comments"
+  And  I click "submit"
+  Then I should not see "absf" in "mark"
+  And I should see "invalid mark input"
+  And I should see "-" in "mark"
+  And I should see "good work" in "comments"
