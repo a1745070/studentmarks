@@ -33,3 +33,12 @@ Scenario: Lecturer Uploads Marks with Comments & mark above 100 (sad case 2)
   Then I should not see "101" in "mark"
   And I should see "100" in "mark"
   And I should see "good work" in "comments"
+
+Scenario: Lecturer Uploads Marks with Comments & too many characters (sad case 3)
+  Given I am on the admin page
+  When I click "upload marks"
+  And  I add "100" into "mark"
+  And  I add "good work" into "comments"
+  And  I click "submit"
+  Then I should see "100" in "mark"
+  And I should see "good work" in "comments"
