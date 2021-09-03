@@ -69,7 +69,7 @@ class Assignment < ApplicationRecord
 
      params[:mark] = params[:mark].to_i
 
-     if params[:mark] < 50
+     if params[:mark] < 50 && params[:mark] >= 0
        assignment.update_attribute(:grade, "F")
      end
      if params[:mark] >= 50 && params[:mark] < 65
@@ -81,7 +81,7 @@ class Assignment < ApplicationRecord
      if params[:mark] >= 75 && params[:mark] < 85
        assignment.update_attribute(:grade, "D")
      end
-     if params[:mark] >= 85
+     if params[:mark] >= 85 && if params[:mark] <= 100
        assignment.update_attribute(:grade, "HD")
      end
 
