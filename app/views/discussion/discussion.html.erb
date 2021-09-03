@@ -8,6 +8,21 @@
 <div class="ui visible inverted left vertical sidebar menu">
   <%=image_tag("gallery/uniadelaide.jpg",  :size => "260x200", :align => "left")%>
 
+
+  <%= link_to href="/assignment/admin", class:"ui secondary button" do%> Course Coordinator View
+    <i class="user md icon"></i>
+  <% end %>
+
+  <%= link_to href="/assignment/student", class:"ui secondary button" do%>
+    Student View
+    <i class="user icon"></i>
+  <% end %>
+
+  <div><p>
+    .
+  </p></div>
+
+
   <i class="grey bullhorn icon"></i>
   <button class="ui inverted grey button"><%= link_to "ANNOUCEMENT", annoucement_hello_path %></button>
 
@@ -48,6 +63,7 @@
   <button class="ui inverted pink button"><%= link_to "CALENDAR", calendar_calendar_path %></button>
 
 </div>
+
 
 
 <div class="pusher">
