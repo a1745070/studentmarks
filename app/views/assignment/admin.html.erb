@@ -1,69 +1,5 @@
-<br>
-<!--  <div class="ui bottom attached segment pushable">  -->
 
-<div class="ui visible inverted left vertical sidebar menu">
-  <%=image_tag("gallery/uniadelaide.jpg",  :size => "260x200", :align => "left")%>
-
-
-  <%= link_to href="/assignment/admin", class:"ui secondary button" do%> Course Coordinator View
-    <i class="user md icon"></i>
-  <% end %>
-
-  <%= link_to href="/assignment/student", class:"ui secondary button" do%>
-    Student View
-    <i class="user icon"></i>
-  <% end %>
-
-  <div><p>
-    .
-  </p></div>
-
-
-  <i class="grey bullhorn icon"></i>
-  <button class="ui inverted grey button"><%= link_to "ANNOUCEMENT", annoucement_hello_path %></button>
-
-
-  <a class="item">
-  </a>
-
-  <i class="blue book icon"></i><button class="ui inverted primary button"><%= link_to "MODULES", modules_modules_path %></button>
-
-  <a class="item">
-  </a>
-
-  <i class="green edit icon"></i>
-  <button class="ui inverted green button"><%= link_to "ASSIGNMENTS", assignments_assignments_path %></button>
-
-  <a class="item">
-  </a>
-
-  <i class="red clipboard icon"></i>
-  <button class="ui inverted red button"><%= link_to "EXAMS", exams_exams_path %></button>
-
-  <a class="item">
-  </a>
-
-  <i class="orange comment icon"></i>
-  <button class="ui inverted orange button"><%= link_to "DISCUSSION", discussion_discussion_path %></button>
-
-  <a class="item">
-  </a>
-
-  <i class="yellow video icon"></i>
-  <button class="ui inverted yellow button"><%= link_to "LECTURES", lectures_lectures_path %></button>
-
-  <a class="item">
-  </a>
-
-  <i class="pink calendar icon"></i>
-  <button class="ui inverted pink button"><%= link_to "CALENDAR", calendar_calendar_path %></button>
-
-</div>
-
-
-
-
-  <div class="pusher fullsize">
+  <div class="pusher">
     <div class="ui basic segment">
       <h3 class="ui header"></h3>
       <div>
@@ -97,33 +33,33 @@
                 < end %>
                 -->
               <%= form_tag assignment_admin_url(id: params[:id]), method: "post" do %>
-              <!-- <= select("assignmentname", "id", Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, {:selected => @sigh}, { include_blank: true }) %> -->
-              <%= select_tag "id", options_for_select(Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, selected: :id , include_blank: true) %>
-              <!-- <= collection_select(:id, :assignmentname, Assignment.all, :id, :assignmentname) %> -->
+                <!-- <= select("assignmentname", "id", Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, {:selected => @sigh}, { include_blank: true }) %> -->
+                <%= select_tag "id", options_for_select(Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, selected: :id , include_blank: true) %>
+                <!-- <= collection_select(:id, :assignmentname, Assignment.all, :id, :assignmentname) %> -->
                 <!-- <= select("assignmentname", "id", Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, {:selected => params[:id]}, { include_blank: true }) %> -->
-              <!-- <= select_tag "assignment", options_for_select(@haha, :selected) %> -->
-              <!-- < puts 'KANYE WEST++++' %>
-                < puts :selected %> -->
-              <!-- <select label="assignment" class="ui search dropdown">
-                < @assignment.each do |assignment| %>
-                    <option> name: <= assignment.assignment.assignmentname %> < @ok = assignment.assignment.id %></option>
-                < end %>
-              </select>
-              -->
+                <!-- <= select_tag "assignment", options_for_select(@haha, :selected) %> -->
+                <!-- < puts 'KANYE WEST++++' %>
+                  < puts :selected %> -->
+                <!-- <select label="assignment" class="ui search dropdown">
+                  < @assignment.each do |assignment| %>
+                      <option> name: <= assignment.assignment.assignmentname %> < @ok = assignment.assignment.id %></option>
+                  < end %>
+                </select>
+                -->
                 <%= submit_tag "Submit" , class: 'ui button'  %>
-               <% end %>
+              <% end %>
               <% params[:id] = nil %>
             </div>
           </div>
 
           <% if @currentassignment == "All Assignments"%>
             <h3>Assignment: <%= @currentassignment %> </h3>
-            <% else %>
+          <% else %>
             <h3>Assignment: <%= @currentassignment %></h3>
           <% end %>
           <h2>Results</h2>
 
-          <table class="ui blue table aligned text-break" style="word-wrap: break-word;flex: inherit">
+          <table class="ui blue table aligned text-break wrapped" style="word-wrap: break-word;flex: inherit">
             <thead>
             <tr>
               <th>Student ID</th>
@@ -136,41 +72,44 @@
             </thead>
             <tbody>
             <% @assignment.each do |assignment| %>
-            <tr>
-              <td><%= assignment.user.studentid %></td>
-              <td><%= assignment.user.name %></td>
-              <td><p style="word-break":"break-all;"><%= assignment.mark.comment %></p></td>
-              <td><%= assignment.mark.mark %></td>
-              <td><%= assignment.mark.grade %></td>
-              <td class="left aligned">
-                <div class="ui small basic buttons">
-                  <%= link_to "#", class: "ui mini button" do %>
-                    <i class="eye icon"></i>
-                  <% end %>
-                  <%= link_to edit_assignment_path(assignment), class: "ui mini button" do %>
-                    <i class="edit outline icon"></i>
-                  <% end %>
-                  <%= link_to "#", method: :destroy, data: { confirm: 'Are you sure?' }, class: "ui mini button" do %>
-                    <i class="cancel icon"></i>
-                  <% end %>
-                </div>
-              </td>
-            </tr>
-              <% end %>
+              <tr>
+                <td><%= assignment.user.studentid %></td>
+                <td><p><%= assignment.user.name %></p></td>
+                <td><p style="word-break":"break-all;"><%= assignment.mark.comment %></p></td>
+                <td><p><%= assignment.mark.mark %></p></td>
+                <td><p><%= assignment.mark.grade %></p></td>
+                <td class="left aligned">
+                  <div class="ui small basic buttons">
+                    <%= link_to "#", class: "ui mini button" do %>
+                      <i class="eye icon"></i>
+                    <% end %>
+                    <%= link_to edit_assignment_path(assignment), class: "ui mini button" do %>
+                      <i class="edit outline icon"></i>
+                    <% end %>
+                    <%= link_to "#", method: :destroy, data: { confirm: 'Are you sure?' }, class: "ui mini button" do %>
+                      <i class="cancel icon"></i>
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
             </tbody>
           </table>
 
           <br>
 
         </div>
+
       </div>
     </div>
   </div>
 </div>
-</div>
+
 
 <% flash.each do |type, msg| %>
   <div>
     <%= msg %>
   </div>
 <% end %>
+</div>
+</div>

@@ -13,3 +13,7 @@ div#full-size {
   left: 0;
   overflow: hidden;
 }
+
+div#wrapped {
+  word-break: break-all;
+}
