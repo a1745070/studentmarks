@@ -4,8 +4,8 @@ class Assignment < ApplicationRecord
   has_many :tasks
   has_many :users, through: :tasks
 
-  def student
-    Task.includes(:assignment, :user, :mark).all
+  def self.student
+    Task.includes(:assignment, :user, :mark).where(user_id: 'a1781637').first
   end
 
 
@@ -31,19 +31,8 @@ class Assignment < ApplicationRecord
       #@assignment = Task.includes(:assignment , :user, :mark).all
       #@allassignments = Assignment.all
       #end
-
-    # @allassignments = Assignment.all
-    #@allassignments = Task.includes(:assignment , :user, :mark).all
-    #@assignment = Task.includes(:assignment , :user, :mark).find_by(assignment_id: session)
-    #Assignment.assignmentname
-    #@task = Task.where(assignment_id: 1)
-    #@user = User.all
   end
 
-  #def self.admin
-    #@assignment = Task.includes(:assignment , :user, :mark).all
-    #@allassignments = Assignment.all
-    #end
 
   #def self.create(assignment_params)
     #Assignment.create(assignment_params)
@@ -63,30 +52,50 @@ class Assignment < ApplicationRecord
      if assignment == nil
        puts 'why???? tho'
      end
-     assignment.update_attribute(:mark, params[:mark])
-     assignment.update_attribute(:comment, params[:comment])
+     #assignment.update_attribute(:mark, params[:mark])
 
      params[:mark] = params[:mark].to_i
 
      if params[:mark] < 50 && params[:mark] >= 0
        assignment.update_attribute(:grade, "F")
+       assignment.update_attribute(:mark, params[:mark])
+       assignment.update_attribute(:comment, params[:comment])
      end
      if params[:mark] >= 50 && params[:mark] < 65
        assignment.update_attribute(:grade, "P")
+       assignment.update_attribute(:mark, params[:mark])
+       assignment.update_attribute(:comment, params[:comment])
      end
      if params[:mark] >= 65 && params[:mark] < 75
        assignment.update_attribute(:grade, "C")
+       assignment.update_attribute(:mark, params[:mark])
+       assignment.update_attribute(:comment, params[:comment])
      end
      if params[:mark] >= 75 && params[:mark] < 85
        assignment.update_attribute(:grade, "D")
+       assignment.update_attribute(:mark, params[:mark])
+       assignment.update_attribute(:comment, params[:comment])
      end
-     if params[:mark] >= 85 && if params[:mark] <= 100
+     if params[:mark] >= 85 && params[:mark] <= 100
        assignment.update_attribute(:grade, "HD")
+       assignment.update_attribute(:mark, params[:mark])
+       assignment.update_attribute(:comment, params[:comment])
+     end
+
+
+     if params[:mark] < 0 || params[:mark] > 100
+       puts '++++++++++++++++is this working'
+       params[:mark] = params[:mark].to_s
+       @prev = assignment.mark
+       puts @prev
+       assignment.update_attribute(:comment, "previous mark was: #{@prev}")
+       assignment.update_attribute(:mark, 0)
+       assignment.update_attribute(:grade, nil)
      end
 
      #if assignment.mark < 50
      #  assignment.update_attribute(:grade, "F")
-     # end
+     #
      #if assignment.mark >= 50 && assignment.mark < 65
      # assignment.update_attribute(:grade, "P")
      #end

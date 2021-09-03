@@ -1,7 +1,8 @@
 class AssignmentController < ApplicationController
 
   def student
-    @mystudentid = Assignment.student
+    @myid = Assignment.student
+    puts @myid
   end
 
   def admin
