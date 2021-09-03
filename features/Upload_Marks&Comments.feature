@@ -14,7 +14,7 @@ Scenario: Lecturer uploads marks with comments (happy case 1)
   Then I should see "60" in "mark"
   And I should see "ok" in "comments"
 
-Scenario: Lecturer doesn't upload any mark or comment (happy case 2)
+Scenario: Lecturer doesn't upload any mark or comment (sad case 1)
   Given I am on the admin page
   When I click "upload marks"
   And  I add "" into "mark"
@@ -23,7 +23,7 @@ Scenario: Lecturer doesn't upload any mark or comment (happy case 2)
   Then I should see "0" in "mark"
   And I should see "" in "comments"
 
-Scenario: Lecturer uploads mark below 0 with comments (sad case 1)
+Scenario: Lecturer uploads mark below 0 with comments (sad case 2)
   Given I am on the admin page
   When I click "upload marks"
   And  I add "-1" into "mark"
@@ -34,7 +34,7 @@ Scenario: Lecturer uploads mark below 0 with comments (sad case 1)
   And I should see "0" in "mark"
   And I should see "fail" in "comments"
 
-Scenario: Lecturer uploads mark above 100 with comments (sad case 2)
+Scenario: Lecturer uploads mark above 100 with comments (sad case 3)
   Given I am on the admin page
   When I click "upload marks"
   And  I add "101" into "mark"
@@ -45,7 +45,7 @@ Scenario: Lecturer uploads mark above 100 with comments (sad case 2)
   And I should see "100" in "mark"
   And I should see "good work" in "comments"
 
-Scenario: Lecturer uploads mark with comments that have too many characters (max 100 char) (sad case 3)
+Scenario: Lecturer uploads mark with comments that have too many characters (max 100 char) (sad case 4)
   Given I am on the admin page
   When I click "upload marks"
   And  I add "100" into "mark"
@@ -56,7 +56,7 @@ Scenario: Lecturer uploads mark with comments that have too many characters (max
   And I should not see "good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work good work " in "comments"
   And I should see "good work good work good work good work good work good work good work good work good work good work " in "comments"
 
-Scenario: Lecturer uploads invalid mark with comments (sad case 4)
+Scenario: Lecturer uploads invalid mark with comments (sad case 5)
   Given I am on the admin page
   When I click "upload marks"
   And  I add "absf" into "mark"
