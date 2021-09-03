@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  root :to => "login#login"
   get 'sign_up/signup'
   post 'sign_up/newUser' => 'sign_up#newUser'
+  get 'login/check' => 'login#check'
   get 'login/login'
   get 'calendar/calendar'
   get 'lectures/lectures'

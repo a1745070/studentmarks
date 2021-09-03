@@ -9,4 +9,9 @@ class UserController < ApplicationController
   def login
 
   end
+
+  def user_params
+    #params.permit(:courseid, :assignmentid, :assignmentname, :assignmentdescr, :grade, :mark, :comments)
+    params.permit(:name, :studentid, :password, :email)
+  end
 end
