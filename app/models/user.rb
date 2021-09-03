@@ -30,4 +30,51 @@ class User < ApplicationRecord
       end
     end
   end
+   def self.create(params)
+      user = User.new
+      user.name = params[:name]
+      user.studentid = params[:studentid]
+      user.email = params[:email]
+      user.password = params[:password]
+      user.save
+   end
+
+  def self.returnlogin
+    @return
+  end
+
+  def self.login(params)
+    puts "+++++++++++++++++++++++++++++++++++++++++++++++++++++"
+    #check if user id is in database
+    if User.exists?(studentid: params[:studentid])
+      puts "user exists"
+      # if true then get the record
+      @user = User.where(studentid: params[:studentid])
+      # check password
+      if @user[0][:password] == params[:password]
+        puts "password match!"
+        puts @user[0].role[:role]
+        if @user[0].role[:role] == "Student"
+          @return = 1
+          #redirect_to '/assignment/student'
+          elsif @user[0].role[:role] == "Course Coordinator"
+            @return = 2
+            #redirect_to '/assignment/admin'
+        end
+        #incorrect password
+      else
+        #display incorrect password
+        @return = 0
+        #redirect_to '/login/login'
+      end
+    else
+      puts "user does not exist"
+      # display error message user not found
+      @return = 0
+      #redirect_to '/login/login'
+    end
+  end
+
 end
+
+
