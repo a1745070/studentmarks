@@ -4,11 +4,10 @@ class Assignment < ApplicationRecord
   has_many :tasks
   has_many :users, through: :tasks
 
-  #def self.goto(id)
-    #Assignment.all
-    #redirect_to :admin
-  #  Task.includes(:assignment , :user, :mark).find_by(id: id)
-  #end
+  def student
+    Task.includes(:assignment, :user, :mark).all
+  end
+
 
   def self.admin(id)
     #Task.includes(:assignment , :user, :mark).find_by_id(id: session)

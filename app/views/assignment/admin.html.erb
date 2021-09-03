@@ -102,12 +102,8 @@
               <!-- <= collection_select(:id, :assignmentname, Assignment.all, :id, :assignmentname) %> -->
                 <!-- <= select("assignmentname", "id", Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, {:selected => params[:id]}, { include_blank: true }) %> -->
               <!-- <= select_tag "assignment", options_for_select(@haha, :selected) %> -->
-              <!-- < puts 'KANYE WEST++++' %>
-                < puts :selected %> -->
+
               <!-- <select label="assignment" class="ui search dropdown">
-                < @assignment.each do |assignment| %>
-                    <option> name: <= assignment.assignment.assignmentname %> < @ok = assignment.assignment.id %></option>
-                < end %>
               </select>
               -->
                 <%= submit_tag "Submit" , class: 'ui button'  %>
@@ -126,6 +122,7 @@
           <table class="ui blue table " style="max-width:700px;">
             <thead>
             <tr>
+              <th>Assignment Name</th>
               <th>Student ID</th>
               <th>Student Name</th>
               <th>Comments</th>
@@ -137,6 +134,7 @@
             <tbody>
             <% @assignment.each do |assignment| %>
             <tr>
+              <td><%= assignment.assignment.assignmentname %></td>
               <td><%= assignment.user.studentid %></td>
               <td><%= assignment.user.name %></td>
               <td><%= assignment.mark.comment %></td>
