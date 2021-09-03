@@ -5,7 +5,7 @@ I want to fill in a text box while submitting their grade.
 After this the student can view their grade and my message
 
 
-Scenario: Lecturer uploads marks with comments (happy case)
+Scenario: Lecturer uploads marks with comments (happy case 1)
   Given I am on the admin page
   When I click "upload marks"
   And  I add "60" into "mark"
@@ -13,6 +13,15 @@ Scenario: Lecturer uploads marks with comments (happy case)
   And  I click "submit"
   Then I should see "60" in "mark"
   And I should see "ok" in "comments"
+
+Scenario: Lecturer doesn't upload any mark or comment (happy case 2)
+  Given I am on the admin page
+  When I click "upload marks"
+  And  I add "" into "mark"
+  And  I add "" into "comments"
+  And  I click "submit"
+  Then I should see "0" in "mark"
+  And I should see "" in "comments"
 
 Scenario: Lecturer uploads mark below 0 with comments (sad case 1)
   Given I am on the admin page
@@ -55,5 +64,5 @@ Scenario: Lecturer uploads invalid mark with comments (sad case 4)
   And  I click "submit"
   Then I should not see "absf" in "mark"
   And I should see "invalid mark input"
-  And I should see "-" in "mark"
+  And I should see "0" in "mark"
   And I should see "good work" in "comments"
