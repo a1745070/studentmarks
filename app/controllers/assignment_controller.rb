@@ -1,8 +1,17 @@
 class AssignmentController < ApplicationController
 
   def student
-    @myid = Assignment.student
-    puts @myid
+    @studentinfo = Assignment.student
+
+    #    @studentinfo.each do |user|
+    #  @myid = user.user.studentid
+    #end
+    #
+    @myid = "a1781637"
+
+
+
+
   end
 
   def admin
@@ -10,8 +19,6 @@ class AssignmentController < ApplicationController
     #session[:id] = params[:id]
     #id = -1
     haha = params[:id]
-
-
 
     if params.has_key?(:id)
       @assignment = Assignment.admin(haha)

@@ -5,7 +5,9 @@ class Assignment < ApplicationRecord
   has_many :users, through: :tasks
 
   def self.student
-    Task.includes(:assignment, :user, :mark).where(user_id: 'a1781637').first
+    #Task.includes(:assignment, :user, :mark).where(studentid: 'a1781637')
+    Task.includes(:assignment , :user, :mark).where(user_id: 4)
+    #@details = Task.includes(:assignment , :user, :mark).all
   end
 
 
@@ -84,10 +86,10 @@ class Assignment < ApplicationRecord
 
 
      if params[:mark] < 0 || params[:mark] > 100
-       puts '++++++++++++++++is this working'
+       #puts '++++++++++++++++is this working'
        params[:mark] = params[:mark].to_s
        @prev = assignment.mark
-       puts @prev
+       #puts @prev
        assignment.update_attribute(:comment, "previous mark was: #{@prev}")
        assignment.update_attribute(:mark, 0)
        assignment.update_attribute(:grade, nil)
