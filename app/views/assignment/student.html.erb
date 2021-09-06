@@ -4,7 +4,7 @@
         <div class = "ui message">
           <h1 class="ui info header">
             <i class="user icon"></i>
-            Student View
+            <%= @studentid %>
           </h1>
           <p></p>
 
@@ -28,7 +28,6 @@
             <thead>
             <tr>
               <th>Assignment</th>
-              <th>Student Name</th>
               <th>Comments</th>
               <th>Mark</th>
               <th>Grade</th>
@@ -36,12 +35,12 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>student id</td>
-              <td>name</td>
-              <td>comment</td>
-              <td>mark</td>
-              <td>grade</td>
+            <% @assignment.each do |assignment| %>
+              <tr>
+                <td><%= assignment.assignment.assignmentname %></td>
+                <td><p id= "wrap" style="word-break":"break-all;"><%= assignment.mark.comment %></p></td>
+                <td><p><%= assignment.mark.mark %></p></td>
+                <td><p><%= assignment.mark.grade %></p></td>
               <td class="left aligned">
                 <div class="ui small basic buttons">
                   <%= link_to "#", class: "ui mini button" do %>
@@ -50,6 +49,7 @@
                 </div>
               </td>
             </tr>
+            <% end %>
             </tbody>
           </table>
 

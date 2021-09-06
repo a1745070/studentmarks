@@ -10,6 +10,10 @@ class Assignment < ApplicationRecord
   #  Task.includes(:assignment , :user, :mark).find_by(id: id)
   #end
 
+  def self.student(studentid)
+    Task.includes(:assignment , :user, :mark).where(user_id: User.select(:id).where(studentid: studentid))
+  end
+
   def self.admin(id)
     #Task.includes(:assignment , :user, :mark).find_by_id(id: session)
 

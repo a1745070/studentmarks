@@ -9,6 +9,11 @@ class AssignmentController < ApplicationController
   #  self.admin(@assignment)
   #  redirect_to :assignment_admin
   #end
+  def student
+    puts "student.html +++++++++++++++++++++++++++++++++++++++"
+    @studentid = session[:studentid]
+    @assignment = Assignment.student(@studentid)
+  end
 
   def admin
     #@assignments = Assignment.all
