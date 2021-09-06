@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   patch '/assignment/update' => 'assignment#update'
   get '/user/export_csv' => 'user#export_csv'
   post '/assignment/admin/(:id)' => 'assignment#admin'
+  post '/assignment/student/(:id)' => 'assignment#student'
   get '/assignment/admin/(:id)' => 'assignment#admin'
   resources :student_mark
   resources :assignment

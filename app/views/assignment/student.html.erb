@@ -1,5 +1,5 @@
 <div class="pusher">
-    <div class="ui basic segment">
+  <div class="ui basic segment">
       <div>
         <div class = "ui message">
           <h1 class="ui info header">
@@ -8,6 +8,7 @@
           </h1>
           <p></p>
 
+          <!--
           Assignment
           <div class="ui selection dropdown">
             <input type="hidden" name=“assignment”>
@@ -20,6 +21,36 @@
               <div class="item" data-value=“WORKSHOP”>WORKSHOP</div>
             </div>
           </div>
+          -->
+
+          <!--
+          <div class="ui form">
+            <div class="field">
+              <label>Assignment</label>
+               <= form_tag(assignment_admin_url(id: assignment.id)) do -%>
+                <= select_tag "id", options_for_select(Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, selected: :id) %>
+                  <= submit_tag "SUBMITTT" %>
+                < end %>
+                -->
+          <!--
+              <= form_tag assignment_student_url(id: params[:id]), method: "post" do %> -->
+                <!-- <= select("assignmentname", "id", Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, {:selected => @sigh}, { include_blank: true }) %> -->
+                <!-- <= select_tag "id", options_for_select(Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, selected: :id , include_blank: true) %> -->
+                <!-- <= collection_select(:id, :assignmentname, Assignment.all, :id, :assignmentname) %> -->
+                <!-- <= select("assignmentname", "id", Assignment.all.collect {|p| [ p.assignmentname, p.id ]}, {:selected => params[:id]}, { include_blank: true }) %> -->
+                <!-- <= select_tag "assignment", options_for_select(@haha, :selected) %> -->
+
+                <!-- <select label="assignment" class="ui search dropdown">
+                </select>
+                -->
+          <!--
+                <= submit_tag "Submit" , class: 'ui button'  %>
+              < end %>
+              < params[:id] = nil %>
+            </div>
+          </div> -->
+
+          <h3>Student ID: <%= @myid %></h3>
 
           <h2>Results and Submissions</h2>
 
@@ -36,12 +67,13 @@
             </tr>
             </thead>
             <tbody>
+            <% @studentinfo.each do |student| %>
             <tr>
-              <td>student id</td>
-              <td>name</td>
-              <td>comment</td>
-              <td>mark</td>
-              <td>grade</td>
+              <td><%= student.assignment.assignmentname %></td>
+              <td><%= student.user.name %></td>
+              <td><%= student.mark.comment %></td>
+              <td><%= student.mark.mark %></td>
+              <td><%= student.mark.grade %></td>
               <td class="left aligned">
                 <div class="ui small basic buttons">
                   <%= link_to "#", class: "ui mini button" do %>
@@ -50,6 +82,7 @@
                 </div>
               </td>
             </tr>
+              <% end %>
             </tbody>
           </table>
 

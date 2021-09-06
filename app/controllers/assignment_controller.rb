@@ -1,14 +1,18 @@
 class AssignmentController < ApplicationController
 
-  #def goto
-    #@allassignments = Assignment.goto
-  #  puts '++++Params id+++++++'
-  #  puts '+++++++HAHAHAH FDSGFHDSHF'
-  #  haha = params[:id]
-  #  @assignment = Assignment.goto(haha)
-  #  self.admin(@assignment)
-  #  redirect_to :assignment_admin
-  #end
+  def student
+    @studentinfo = Assignment.student
+
+    #    @studentinfo.each do |user|
+    #  @myid = user.user.studentid
+    #end
+    #
+    @myid = "a1781637"
+
+
+
+
+  end
 
   def admin
     #@assignments = Assignment.all
@@ -32,15 +36,11 @@ class AssignmentController < ApplicationController
       @currentassignment = @title
 
       #@currentassignment = @assignment.assignment.assignmentname.first
-      puts 'ARE WE STILL FRIENDS?'
-      puts @currentassignment
+      #puts 'ARE WE STILL FRIENDS?'
+      #puts @currentassignment
 
       #User.where({ name: "Joe", email: "joe@example.com" })
       # SELECT * FROM users WHERE name = 'Joe' AND email = 'joe@example.com'
-
-      #puts 'WHAT IS ID BEING RECEIVED: '
-      #puts haha
-      #puts '+++++++'
 
     else
       @assignment = Assignment.admin(-1)
@@ -79,8 +79,8 @@ class AssignmentController < ApplicationController
   end
 
   def update
-    puts '++++++++++ whats aparams'
-    puts session[:id]
+    #puts '++++++++++ whats aparams'
+    #puts session[:id]
     params[:id] = session[:id]
     Assignment.update(params[:id], assignment_params)
      respond_to do |format|
