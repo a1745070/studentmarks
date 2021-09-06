@@ -17,3 +17,7 @@ end
 Then(/^I should not see "([^"]*)" in "([^"]*)"$/) do |arg1, arg2|
   expect(arg2).not_to have_content(arg1)
 end
+
+And(/^I should see "([^"]*)"$/) do |arg|
+  expect(page).to have_content(arg)
+end
