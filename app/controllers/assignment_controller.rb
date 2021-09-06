@@ -1,17 +1,18 @@
 class AssignmentController < ApplicationController
 
+  #def goto
+    #@allassignments = Assignment.goto
+  #  puts '++++Params id+++++++'
+  #  puts '+++++++HAHAHAH FDSGFHDSHF'
+  #  haha = params[:id]
+  #  @assignment = Assignment.goto(haha)
+  #  self.admin(@assignment)
+  #  redirect_to :assignment_admin
+  #end
   def student
-    @studentinfo = Assignment.student
-
-    #    @studentinfo.each do |user|
-    #  @myid = user.user.studentid
-    #end
-    #
-    @myid = "a1781637"
-
-
-
-
+    puts "student.html +++++++++++++++++++++++++++++++++++++++"
+    @studentid = session[:studentid]
+    @assignment = Assignment.student(@studentid)
   end
 
   def admin

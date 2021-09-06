@@ -11,11 +11,15 @@ class LoginController < ApplicationController
     end
     if @return == 1
       session[:role] = "Student"
+      session[:studentid] = user_params[:studentid]
+      session[:id] = @id
       puts "returned 1" , session[:role]
       redirect_to '/assignment/student'
     end
     if @return == 2
       session[:role] = "Course Coordinator"
+      session[:studentid] = user_params[:studentid]
+      session[:id] = @id
       puts "returned 2" , session[:role]
       redirect_to '/assignment/admin'
     end

@@ -52,6 +52,7 @@ class User < ApplicationRecord
       @user = User.where(studentid: params[:studentid])
       # check password
       if @user[0][:password] == params[:password]
+        @id = @user[0][:id]
         puts "password match!"
         puts @user[0].role[:role]
         if @user[0].role[:role] == "Student"
