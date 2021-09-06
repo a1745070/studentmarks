@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get 'exams/exams'
   get 'assignments/assignments'
   get 'modules/modules'
-  get 'annoucement/hello'
+  get 'announcement/hello'
+  get 'changelog/changelog'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'user/login' => 'user#login'
   get '/user/index', to: "user#login"
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   patch '/assignment/update' => 'assignment#update'
   get '/user/export_csv' => 'user#export_csv'
   post '/assignment/admin/(:id)' => 'assignment#admin'
+  post '/assignment/student/(:id)' => 'assignment#student'
   get '/assignment/admin/(:id)' => 'assignment#admin'
   resources :student_mark
   resources :assignment
