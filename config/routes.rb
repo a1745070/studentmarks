@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   get 'login/login'
   get 'calendar/calendar'
   get 'lectures/lectures'
+  get 'announcement/hello'
+  # get 'announcement/announcement'
   get 'discussion/discussion'
   get 'exams/exams'
   get 'assignments/assignments'
   get 'modules/modules'
-  get 'announcement/hello'
   get 'changelog/changelog'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'user/login' => 'user#login'
