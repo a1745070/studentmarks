@@ -60,7 +60,7 @@
           <% else %>
             <h3>Assignment: <%= @currentassignment %></h3>
           <% end %>
-
+          <%= link_to( 'Export all marks as CSV', user_export_csv_path(format: "csv", :class => 'btn-ex')) %>
           <table class="ui purple striped table aligned text-break wrapped" style="word-wrap: break-word;flex: inherit">
             <thead>
             <tr>
