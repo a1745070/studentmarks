@@ -39,12 +39,8 @@ class User < ApplicationRecord
       user.save
    end
 
-  def self.returnlogin
-    @return
-  end
-
   def self.login(params)
-    puts "+++++++++++++++++++++++++++++++++++++++++++++++++++++"
+    puts "login+++++++++++++++++++++++++++++++++++++++++++++++++++++"
     #check if user id is in database
     if User.exists?(studentid: params[:studentid])
       puts "user exists"
@@ -62,7 +58,7 @@ class User < ApplicationRecord
             @return = 2
             #redirect_to '/assignment/admin'
         end
-        #incorrect password
+        return @user
       else
         #display incorrect password
         @return = 0
@@ -74,6 +70,7 @@ class User < ApplicationRecord
       @return = 0
       #redirect_to '/login/login'
     end
+    puts "login.end+++++++++++++++++++++++++++++++++++++++++++++++++++++"
   end
 
 end

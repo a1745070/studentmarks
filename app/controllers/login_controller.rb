@@ -1,26 +1,25 @@
 class LoginController < ApplicationController
+  layout "index"
   def login
   end
 
+  def logout
+    session.data.delete :user
+  end
+
   def check
-    User.login(user_params)
-    @return = User.returnlogin
+    session[:user] = User.login(user_params)
+    @return = LoginController.RoleCheck(session[:user])
     if @return == 0
-      puts "returned 0"
+      puts "returned 0 - invalid login details"
       redirect_to '/login/login'
     end
     if @return == 1
-      session[:role] = "Student"
-      session[:studentid] = user_params[:studentid]
-      session[:id] = @id
-      puts "returned 1" , session[:role]
+      puts "returned 1"
       redirect_to '/assignment/student'
     end
     if @return == 2
-      session[:role] = "Course Coordinator"
-      session[:studentid] = user_params[:studentid]
-      session[:id] = @id
-      puts "returned 2" , session[:role]
+      puts "returned 2"
       redirect_to '/assignment/admin'
     end
   end
