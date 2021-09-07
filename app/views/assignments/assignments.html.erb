@@ -1,5 +1,50 @@
+<p>
 
 
+</p>
 
-<h1>Assignments#assignments</h1>
-<p>Find me in app/views/assignments/assignments.html.erb</p>
+<br>
+<!--  <div class="ui bottom attached segment pushable">  -->
+
+<div class="pusher">
+  <div class="ui basic segment">
+    <div>
+      <div class = "ui message">
+        <h1 class="ui info header">
+          <h1>ASSIGNMENTS</h1>
+
+          <div class = "ui message">
+            <h2>ASSIGNMENT 1</h2>
+            <p1>DUE DATE 2/9/21</p1><br><br>
+            <p1>AVAILABLE TILL 3/9/21</p1>
+          </div>
+
+          <div class = "ui message">
+            <h2>ASSIGNMENT 2</h2>
+             <p1>DUE DATE 4/9/21</p1><br><br>
+            <p1>AVAILABLE TILL 5/9/21</p1>
+          </div>
+
+          <div class = "ui message">
+            <h2>ASSIGNMENT 3</h2>
+             <p1>DUE DATE 7/9/21</p1><br><br>
+            <p1>AVAILABLE TILL 8/9/21</p1>
+          </div>
+
+
+          <div class = "ui message">
+            <h2>ASSIGNMENT 4</h2>
+            <p1>DUE DATE 13/9/21</p1><br><br>
+            <p1>AVAILABLE TILL 14/9/21</p1> 
+            
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
