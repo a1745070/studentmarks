@@ -5,6 +5,6 @@ Feature: Automatic Marks Extraction
   After this I will be able to view all of the extracted student marks
 
   Scenario: Lecturer wants collated marks
-    Given I have a "Collated Marks csv"
-    When I want to download the "csv"
-    Then the system should be able to allow me to download it
+    Given I have "Collated Marks csv"
+    When I download "Collated Marks csv"
+    Then I should see "Collated Marks csv" being downloaded
