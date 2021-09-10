@@ -1,11 +1,7 @@
 Given(/^I have "([^"]*)"$/) do |arg|
-  pending
+  expect(page).to have_content(arg)
 end
 
-When(/^I download "([^"]*)"$/) do |arg|
-  pending
-end
-
-Then(/^I should see "([^"]*)" being downloaded$/) do |arg|
-  pending
+Then(/^I should get a download with the filename "([^"]*)"$/) do |arg|
+  page.response_headers['Content-Disposition'].should include("filename=\"#{arg}\"")
 end

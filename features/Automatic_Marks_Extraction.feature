@@ -4,7 +4,7 @@ Feature: Automatic Marks Extraction
   I want to download the collated marks object as a csv file
   After this I will be able to view all of the extracted student marks
 
-  Scenario: Lecturer wants collated marks
+  Scenario: Lecturer downloads collated marks
     Given I have "Collated Marks csv"
-    When I download "Collated Marks csv"
-    Then I should see "Collated Marks csv" being downloaded
+    When I click "Collated Marks csv"
+    Then I should get a download with the filename "Collated Marks csv"
