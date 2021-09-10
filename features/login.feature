@@ -24,6 +24,16 @@ Scenario: Student logs in (happy case 2)
   And  I click "LOGIN"
   Then I am on the student assignment page
 
+Scenario: Course coordinator logs out (happy case 3)
+  Given I am on the admin assignment page
+  And  I click "LOGOUT"
+  Then I am on the login page
+
+Scenario: Student logs out (happy case 4)
+  Given I am on the student assignment page
+  And  I click "LOGOUT"
+  Then I am on the login page
+
 Scenario: No studentid or password added (sad case 1)
   Given I am on the login page
   When  I add "" into "Studentid"
