@@ -4,11 +4,13 @@ Feature: Automatic Marks Collation
   I want to access a database that allows me to instantly collate marks through queries.
   After this I will have gathered the students marks as an object.
 
+Background: users in database
+  Given the following users exist:
+    | studentid  | mark  |
+    | a1781637   |       |
 
-  Scenario: Lecturer Wants Gathered Marks
-    Given I have "Students"
-    And I have "Mark"
-    When I want to view all individual "Mark" together
-    Then the system should be able to collect all "Mark" through queries
-    And compile it into a csv file
+  Scenario: Lecturer gets marks
+    When I request "mark" for students
+    Then the system should compile all "mark" into "Collated Marks csv"
+
 
