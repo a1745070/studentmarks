@@ -23,7 +23,7 @@ class Assignment < ApplicationRecord
     if id == -1
       Task.includes(:assignment , :user, :mark).all
     else
-      Task.includes(:assignment , :user, :mark).where(asstype: "Assignment")
+      Task.includes(:assignment , :user, :mark).where(assignment_id: id)
     end
     #Task.includes(:assignment , :user, :mark).find_by(id: id)
     #if session == -1
