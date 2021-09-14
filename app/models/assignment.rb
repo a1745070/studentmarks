@@ -23,9 +23,9 @@ class Assignment < ApplicationRecord
   end
 
   def self.averagecurrentgrade(id)
-    #sum = Task.includes(:mark).where(assignment_id: id).sum(:mark)
-    sum=Mark.where(task_id: id).sum(:mark)
-    num = Mark.where(task_id: id).all.count
+    sum = Task.includes(:mark).where(assignment_id: id).sum(:mark)
+    #sum=Mark.where(task_id: id).sum(:mark)
+    num = Task.includes(:mark).where(assignment_id: id).count
     if num!=0
 
       sum/num
