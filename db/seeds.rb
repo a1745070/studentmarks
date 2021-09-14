@@ -63,7 +63,7 @@ end
 assignment_list = [
   [1 , "assignment1" , "this is assignment 1" , 50],
   [1 , "assignment2" , "this is assignment 2" , 50],
-  [1 , "assignment3" , "hahaha" , 0]
+  [1 , "Exam" , "hahaha" , 0]
 ]
 
 assignment_list.each do |course_id, assignmentname, assignmentdesc, weight|
@@ -99,11 +99,11 @@ mark_list = [
   [6,"HD",85,"Good", "Assignment"],
   [7,"HD",85,"Good", "Assignment"],
   [8,"HD",85,"Good", "Assignment"],
-  [9,"HD",85,"Good", "Exam"],
-  [10,"HD",85,"Good", "Exam"],
-  [11,"HD",85,"Good", "Exam"],
+  [9,"HD",85,"Good", "Assignment"],
+  [10,"HD",85,"Good", "Assignment"],
+  [11,"HD",85,"Good", "Assignment"],
   [12,"HD",85,"Good", "Assignment"],
-  [13,"D",77,"Cool", "Assignment"]
+  [13,"D",77,"Cool", "Exam"]
 ]
 
 mark_list.each do |task_id, grade, mark, comment, asstype|
