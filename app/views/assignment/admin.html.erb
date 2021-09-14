@@ -2,6 +2,7 @@
 <div class="pusher">
     <div class="ui basic segment">
       <h3 class="ui header"></h3>
+
       <div>
         <div class = "ui message">
           <p></p>
@@ -9,7 +10,7 @@
             <i class="user md icon"></i>
             Course Coordinator View
           </h1>
-          <p></p>
+
           <p>The Course Coordinator View allows the quick selection of Assignments through the dropdown menu. After
           selection, the corresponding marks will appear in the table below.</p>
           <!--
@@ -55,6 +56,14 @@
               <% params[:id] = nil %>
             </div>
           </div>
+
+
+          <p>Average Assignments Grade (All): <%= @averageassgrade %></p>
+          <p>Average Exam Grade (All): <%= @averageexamgrade %></p>
+
+          <% if @averagecurrentgrade %>
+            <p>Average Grade for <%=@currentassignment %>: <%= @averagecurrentgrade %></p>
+          <% end %>
 
           <% if @currentassignment == "All Assignments"%>
             <h3>Assignment: <%= @currentassignment %> </h3>

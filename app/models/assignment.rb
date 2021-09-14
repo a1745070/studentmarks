@@ -10,6 +10,27 @@ class Assignment < ApplicationRecord
     #@details = Task.includes(:assignment , :user, :mark).all
   end
 
+  def self.averageassgrade()
+    sum = Mark.where(asstype: "Assignment").sum(:mark)
+    num = Mark.where(asstype: "Assignment").all.count
+    sum/num
+  end
+
+  def self.averageexamgrade()
+    sum = Mark.where(asstype: "Exam").sum(:mark)
+    num = Mark.where(asstype: "Exam").all.count
+    sum/num
+  end
+
+  def self.averagecurrentgrade(id)
+    sum=Mark.where(task_id: id).sum(:mark)
+    num = Mark.where(task_id: id).all.count
+    if num!=0
+
+      sum/num
+    end
+  end
+
 
   def self.student(studentid)
     Task.includes(:assignment , :user, :mark).where(user_id: User.select(:id).where(studentid: studentid))

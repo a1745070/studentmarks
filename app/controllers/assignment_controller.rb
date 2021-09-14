@@ -16,10 +16,14 @@ class AssignmentController < ApplicationController
   end
 
   def admin
+    haha = params[:id]
+    @averageassgrade = Assignment.averageassgrade()
+    @averageexamgrade = Assignment.averageexamgrade()
+    @averagecurrentgrade = Assignment.averagecurrentgrade(haha)
     #@assignments = Assignment.all
     #session[:id] = params[:id]
     #id = -1
-    haha = params[:id]
+
 
     if params.has_key?(:id)
       @assignment = Assignment.admin(haha)
@@ -35,6 +39,7 @@ class AssignmentController < ApplicationController
       end
 
       @currentassignment = @title
+
 
       #@currentassignment = @assignment.assignment.assignmentname.first
       #puts 'ARE WE STILL FRIENDS?'
