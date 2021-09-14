@@ -87,7 +87,16 @@
             <% @assignment.each do |assignment| %>
               <tr>
                 <td><%= assignment.user.studentid %></td>
-                <td><p><%= assignment.user.name %></p></td>
+                <td>
+
+                  <div data-tooltip = "See all work submitted by <%=assignment.user.name %>">
+                    <%=link_to assignment_same_path(assignment.id), class: "ui floated small basic labeled icon" do %>
+                     <%= assignment.user.name %>
+                     <i class="user icon"></i>
+                    <%end %>
+
+                  </div>
+                </td>
                 <td><p id= "wrap" style="word-break":"break-all;"><%= assignment.mark.comment %></p></td>
                 <td><p><%= assignment.mark.mark %></p></td>
                 <td><p><%= assignment.mark.grade %></p></td>

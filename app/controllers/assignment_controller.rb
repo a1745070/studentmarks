@@ -69,6 +69,13 @@ class AssignmentController < ApplicationController
     #grades: @all_grades)
   end
 
+  def same
+    haha = params[:id]
+    @assignment = Assignment.same(haha)
+    @userid = Assignment.userid(haha)
+
+  end
+
   #def admin
   #  @assignment = Task.includes(:assignment , :user, :mark).all
   #  @allassignments = Assignment.admin

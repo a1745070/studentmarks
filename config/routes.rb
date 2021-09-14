@@ -24,9 +24,15 @@ Rails.application.routes.draw do
   post '/assignment/admin/(:id)' => 'assignment#admin'
   post '/assignment/student/(:id)' => 'assignment#student'
   get '/assignment/admin/(:id)' => 'assignment#admin'
+
   resources :student_mark
   resources :assignment
   resources :course
   resources :user
+
+  resources :assignment do
+    match "same" => 'assignment#same', :via => [:get, :post]
+
+  end
 
 end
