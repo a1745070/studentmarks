@@ -6,11 +6,11 @@ Feature: Automatic Marks Collation
 
 Background: users in database
   Given the following users exist:
-    | studentid  | mark  |
-    | a1781637   |       |
+    | studentid | name  | coursename | assignmentname | mark | grade  |
+    | a1781637	| peter	| ["ESAASI"] | assignment2    | 85   | HD     |
 
   Scenario: Lecturer gets marks
-    When I request "mark" for students
-    Then the system should compile all "mark" into "Collated Marks csv"
+    When I click "Export all marks as CSV"
+    Then The system should compile all "mark" from database into "Collated Marks csv"
 
 
