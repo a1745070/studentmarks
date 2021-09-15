@@ -11,6 +11,6 @@ Background: users in database
 
   Scenario: Lecturer gets marks
     When I click "Export all marks as CSV"
-    Then The system should compile all "mark" from database into "Collated Marks csv"
+    Then The system should compile "85" from database into "Collated Marks csv"
 
 

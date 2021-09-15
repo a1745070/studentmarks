@@ -1,7 +1,3 @@
-Then(/^The system should compile all "([^"]*)" from database into "([^"]*)"$/) do |arg1, arg2|
-  pending
-  # table is a table.hashes.keys # => [:studentid, :password]
-  table.hashes.each do |user|
-    User.create!(user)
-  end
+Then(/^The system should compile "([^"]*)" from database into "([^"]*)"$/) do |arg1, arg2|
+  expect(arg2).to have_content(arg1)
 end
