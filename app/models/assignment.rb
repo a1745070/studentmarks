@@ -13,13 +13,17 @@ class Assignment < ApplicationRecord
   def self.averageassgrade()
     sum = Mark.where(asstype: "Assignment").sum(:mark)
     num = Mark.where(asstype: "Assignment").all.count
+    if num!=0
     sum/num
+    end
   end
 
   def self.averageexamgrade()
     sum = Mark.where(asstype: "Exam").sum(:mark)
     num = Mark.where(asstype: "Exam").all.count
-    sum/num
+    if num!=0
+      sum/num
+    end
   end
 
   def self.averagecurrentgrade(id)
