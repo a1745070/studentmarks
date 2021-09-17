@@ -9,7 +9,6 @@ Background: users in database
     | a1223332   | admin     |
     | a1781637   | qwerty55  |
 
-
 Scenario: Course coordinator logs in (happy case 1)
   Given I am on the login page
   When  I add "a1223332" into "Studentid"
