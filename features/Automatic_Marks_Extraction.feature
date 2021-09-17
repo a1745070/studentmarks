@@ -11,5 +11,5 @@ Background: users in database
 
   Scenario: Lecturer downloads collated marks
     When I click "Export all marks as CSV"
-    Then The system should compile all "mark" from database into "Collated Marks csv"
+    Then The system should compile "85" from database into "Collated Marks csv"
     And I should get a download with the filename "Collated Marks csv"
