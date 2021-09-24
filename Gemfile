@@ -6,8 +6,6 @@ gem 'responders'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '1.4.2', :source => 'https://rubygems.org/'
 
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
@@ -34,6 +32,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '1.4.2', :source => 'https://rubygems.org/'
 end
 
 group :development do
