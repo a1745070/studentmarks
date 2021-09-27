@@ -9,12 +9,22 @@ class AssignmentController < ApplicationController
   #  self.admin(@assignment)
   #  redirect_to :assignment_admin
   #end
+  def student
+    puts "student.html +++++++++++++++++++++++++++++++++++++++"
+    @studentid = session[:studentid]
+    @assignment = Assignment.student(@studentid)
+  end
 
   def admin
+    haha = params[:id]
+
+    @averageassgrade = Assignment.averageassgrade()
+    @averageexamgrade = Assignment.averageexamgrade()
+
     #@assignments = Assignment.all
     #session[:id] = params[:id]
     #id = -1
-    haha = params[:id]
+
 
     if params.has_key?(:id)
       @assignment = Assignment.admin(haha)
@@ -30,17 +40,15 @@ class AssignmentController < ApplicationController
       end
 
       @currentassignment = @title
+      @averagecurrentgrade = Assignment.averagecurrentgrade(haha)
+
 
       #@currentassignment = @assignment.assignment.assignmentname.first
-      puts 'ARE WE STILL FRIENDS?'
-      puts @currentassignment
+      #puts 'ARE WE STILL FRIENDS?'
+      #puts @currentassignment
 
       #User.where({ name: "Joe", email: "joe@example.com" })
       # SELECT * FROM users WHERE name = 'Joe' AND email = 'joe@example.com'
-
-      #puts 'WHAT IS ID BEING RECEIVED: '
-      #puts haha
-      #puts '+++++++'
 
     else
       @assignment = Assignment.admin(-1)
@@ -61,6 +69,13 @@ class AssignmentController < ApplicationController
     #grades: @all_grades)
   end
 
+  def same
+    haha = params[:id]
+    @assignment = Assignment.same(haha)
+    @userid = Assignment.userid(haha)
+
+  end
+
   #def admin
   #  @assignment = Task.includes(:assignment , :user, :mark).all
   #  @allassignments = Assignment.admin
@@ -79,8 +94,8 @@ class AssignmentController < ApplicationController
   end
 
   def update
-    puts '++++++++++ whats aparams'
-    puts session[:id]
+    #puts '++++++++++ whats aparams'
+    #puts session[:id]
     params[:id] = session[:id]
     Assignment.update(params[:id], assignment_params)
      respond_to do |format|

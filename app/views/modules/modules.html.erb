@@ -1,4 +1,55 @@
 
 
-<h1>Modules#modules</h1>
-<p>Find me in app/views/modules/modules.html.erb</p>
+<p>
+
+
+</p>
+
+<br>
+<!--  <div class="ui bottom attached segment pushable">  -->
+
+<div class="pusher">
+  <div class="ui basic segment">
+    <div>
+      <div class = "ui message">
+        <h1 class="ui info header">
+          <h1>MODULES</h1>
+
+          <div class = "ui message">
+            <h2>WEEK 1</h2>
+            <p1>LECTURE SLIDES FOR THIS WEEK</p1><br><br>
+            <p1>COURSE READINGS</p1><br><br>
+            <p1>ASSIGNMENT DETAILS</p1>
+          </div>
+
+          <div class = "ui message">
+            <h2>WEEK 2</h2>
+            <p1>LECTURE SLIDES FOR THIS WEEK</p1><br><br>
+            <p1>COURSE READINGS</p1><br><br>
+            <p1>ASSIGNMENT DETAILS</p1>
+          </div>
+
+          <div class = "ui message">
+            <h2>WEEK 3</h2>
+            <p1>LECTURE SLIDES FOR THIS WEEK</p1><br><br>
+            <p1>COURSE READINGS</p1><br><br>
+            <p1>ASSIGNMENT DETAILS</p1>
+          </div>
+
+
+          <div class = "ui message">
+            <h2>WEEK 4</h2>
+            <p1>LECTURE SLIDES FOR THIS WEEK</p1><br><br>
+            <p1>COURSE READINGS</p1><br><br>
+            <p1>ASSIGNMENT DETAILS</p1>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>

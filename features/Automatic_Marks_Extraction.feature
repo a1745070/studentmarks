@@ -4,7 +4,12 @@ Feature: Automatic Marks Extraction
   I want to download the collated marks object as a csv file
   After this I will be able to view all of the extracted student marks
 
-  Scenario: Lecturer wants collated marks
-    Given I have a "Collated Marks csv"
-    When I want to download the "csv"
-    Then the system should be able to allow me to download it
+Background: users in database
+  Given the following users exist:
+    | studentid | name  | coursename | assignmentname | mark | grade  |
+    | a1781637	| peter	| ["ESAASI"] | assignment2    | 85   | HD     |
+
+  Scenario: Lecturer downloads collated marks
+    When I click "Export all marks as CSV"
+    Then The system should compile "85" from database into "Collated Marks csv"
+    And I should get a download with the filename "Collated Marks csv"

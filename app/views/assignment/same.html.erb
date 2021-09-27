@@ -1,0 +1,76 @@
+
+<div class="pusher">
+    <div class="ui basic segment">
+      <h3 class="ui header"></h3>
+
+      <div>
+        <div class = "ui message">
+          <p></p>
+          <h1 class="ui info header">
+            <i class="user md icon"></i>
+            Course Coordinator View for Student: <%= %>
+          </h1>
+
+
+
+
+          <p>Average Assignments Grade (Student): <%= @averageassgrade %></p>
+          <p>Exam Grade (Student): <%= @averageexamgrade %></p>
+
+          <% if @averagecurrentgrade %>
+            <p>Average Grade for <%=@currentassignment %>: <%= @averagecurrentgrade %></p>
+          <% end %>
+          
+          <%= link_to( 'Export all marks as CSV', user_export_csv_path(format: "csv", :class => 'btn-ex')) %>
+          <table class="ui purple striped table aligned text-break wrapped" style="word-wrap: break-word;flex: inherit">
+            <thead>
+            <tr>
+              <th>Comments</th>
+              <th>Mark</th>
+              <th>Grade</th>
+              <th>Type</th>
+              <th class="aligned"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @assignment.each do |assignment| %>
+              <tr>
+                <td><p id= "wrap" style="word-break":"break-all;"><%= assignment.mark.comment %></p></td>
+                <td><p><%= assignment.mark.mark %></p></td>
+                <td><p><%= assignment.mark.grade %></p></td>
+                <td><p><%= assignment.mark.asstype %></p></td>
+                <td class="left aligned">
+                  <div class="ui small basic buttons">
+                    <%= link_to "#", class: "ui mini button" do %>
+                      <i class="eye icon"></i>
+                    <% end %>
+                    <%= link_to edit_assignment_path(assignment), class: "ui mini button" do %>
+                      <i class="edit outline icon"></i>
+                    <% end %>
+                    <%= link_to "#", method: :destroy, data: { confirm: 'Are you sure?' }, class: "ui mini button" do %>
+                      <i class="cancel icon"></i>
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+
+          <br>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+</div>
+</div>

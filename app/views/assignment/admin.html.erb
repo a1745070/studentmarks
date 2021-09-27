@@ -1,7 +1,8 @@
 
-  <div class="pusher">
+<div class="pusher">
     <div class="ui basic segment">
       <h3 class="ui header"></h3>
+
       <div>
         <div class = "ui message">
           <p></p>
@@ -9,7 +10,7 @@
             <i class="user md icon"></i>
             Course Coordinator View
           </h1>
-          <p></p>
+
           <p>The Course Coordinator View allows the quick selection of Assignments through the dropdown menu. After
           selection, the corresponding marks will appear in the table below.</p>
           <!--
@@ -56,12 +57,20 @@
             </div>
           </div>
 
+
+          <p>Average Assignments Grade (All): <%= @averageassgrade %></p>
+          <p>Average Exam Grade (All): <%= @averageexamgrade %></p>
+
+          <% if @averagecurrentgrade %>
+            <p>Average Grade for <%=@currentassignment %>: <%= @averagecurrentgrade %></p>
+          <% end %>
+
           <% if @currentassignment == "All Assignments"%>
             <h3>Assignment: <%= @currentassignment %> </h3>
           <% else %>
             <h3>Assignment: <%= @currentassignment %></h3>
           <% end %>
-
+          <%= link_to( 'Export all marks as CSV', user_export_csv_path(format: "csv", :class => 'btn-ex')) %>
           <table class="ui purple striped table aligned text-break wrapped" style="word-wrap: break-word;flex: inherit">
             <thead>
             <tr>
@@ -70,6 +79,7 @@
               <th>Comments</th>
               <th>Mark</th>
               <th>Grade</th>
+              <th>Type</th>
               <th class="aligned"></th>
             </tr>
             </thead>
@@ -77,10 +87,20 @@
             <% @assignment.each do |assignment| %>
               <tr>
                 <td><%= assignment.user.studentid %></td>
-                <td><p><%= assignment.user.name %></p></td>
+                <td>
+
+                  <div data-tooltip = "See all work submitted by <%=assignment.user.name %>">
+                    <%=link_to assignment_same_path(assignment.id), class: "ui floated small basic labeled icon" do %>
+                     <%= assignment.user.name %>
+                     <i class="user icon"></i>
+                    <%end %>
+
+                  </div>
+                </td>
                 <td><p id= "wrap" style="word-break":"break-all;"><%= assignment.mark.comment %></p></td>
                 <td><p><%= assignment.mark.mark %></p></td>
                 <td><p><%= assignment.mark.grade %></p></td>
+                <td><p><%= assignment.mark.asstype %></p></td>
                 <td class="left aligned">
                   <div class="ui small basic buttons">
                     <%= link_to "#", class: "ui mini button" do %>

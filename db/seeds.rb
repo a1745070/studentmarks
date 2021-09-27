@@ -63,7 +63,7 @@ end
 assignment_list = [
   [1 , "assignment1" , "this is assignment 1" , 50],
   [1 , "assignment2" , "this is assignment 2" , 50],
-  [1 , "assignment3" , "hahaha" , 0]
+  [1 , "Exam" , "hahaha" , 0]
 ]
 
 assignment_list.each do |course_id, assignmentname, assignmentdesc, weight|
@@ -91,21 +91,21 @@ task_list.each do |user_id, assignment_id|
 end
 
 mark_list = [
-  [1,"HD",85,"Good"],
-  [2,"HD",85,"Good"],
-  [3,"HD",85,"Good"],
-  [4,"HD",85,"Good"],
-  [5,"HD",85,"Good"],
-  [6,"HD",85,"Good"],
-  [7,"HD",85,"Good"],
-  [8,"HD",85,"Good"],
-  [9,"HD",85,"Good"],
-  [10,"HD",85,"Good"],
-  [11,"HD",85,"Good"],
-  [12,"HD",85,"Good"],
-  [13,"D",77,"Cool"]
+  [1,"HD",85,"Good", "Assignment"],
+  [2,"HD",85,"Good", "Assignment"],
+  [3,"HD",85,"Good", "Assignment"],
+  [4,"HD",85,"Good", "Assignment"],
+  [5,"HD",85,"Good", "Assignment"],
+  [6,"HD",85,"Good", "Assignment"],
+  [7,"HD",85,"Good", "Assignment"],
+  [8,"HD",85,"Good", "Assignment"],
+  [9,"HD",85,"Good", "Assignment"],
+  [10,"HD",85,"Good", "Assignment"],
+  [11,"HD",85,"Good", "Assignment"],
+  [12,"HD",85,"Good", "Assignment"],
+  [13,"D",77,"Cool", "Exam"]
 ]
 
-mark_list.each do |task_id, grade, mark, comment|
-  Mark.create(task_id: task_id, grade: grade, mark: mark, comment: comment)
+mark_list.each do |task_id, grade, mark, comment, asstype|
+  Mark.create(task_id: task_id, grade: grade, mark: mark, comment: comment, asstype: asstype)
 end

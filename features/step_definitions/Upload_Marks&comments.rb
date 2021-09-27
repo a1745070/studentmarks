@@ -1,5 +1,5 @@
-Given(/^I am on the admin page$/) do
-  visit root_path
+Given(/^I am on the admin assignment page$/) do
+  visit assignment_admin_path
 end
 
 And(/^I add "([^"]*)" into "([^"]*)"$/) do |arg1, arg2|
