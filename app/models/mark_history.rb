@@ -1,3 +1,3 @@
 class MarkHistory < ApplicationRecord
-  belongs_to :mark
+  #belongs_to :mark
 end
