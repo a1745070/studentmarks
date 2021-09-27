@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'assignments/assignments'
   get 'modules/modules'
   get 'announcement/hello'
-  get 'changelog/changelog'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'user/login' => 'user#login'
   get '/user/index', to: "user#login"
@@ -26,5 +26,6 @@ Rails.application.routes.draw do
   resources :assignment
   resources :course
   resources :user
+  resources :changelogs, only: :index
 
 end
