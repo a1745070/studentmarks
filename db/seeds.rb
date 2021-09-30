@@ -8,32 +8,21 @@
 #
 
 user_list = [
-  ["peter","a1781637","qwerty55","a1781637@student.adelaide.edu.au"],
-  ["bobby","a1783331","bentley","a1783331@student.adelaide.edu.au"],
-  ["ian","a1773884","poggers","a1773884@student.adelaide.edu.au"],
-  ["aniza","a1884223","itsjustamood","a1884223@student.adelaide.edu.au"],
-  ["chris","a1772883","solocarry","a1772883@student.adelaide.edu.au"],
-  ["archie","a1882993","iloveui","a1882993@student.adelaide.edu.au"],
-  ["aufeef","a1223332","admin","a1223332@adelaide.edu.au"]
+  ["peter","a1781637","qwerty55","a1781637@student.adelaide.edu.au","Student"],
+  ["bobby","a1783331","bentley","a1783331@student.adelaide.edu.au","Student"],
+  ["ian","a1773884","poggers","a1773884@student.adelaide.edu.au","Student"],
+  ["aniza","a1884223","itsjustamood","a1884223@student.adelaide.edu.au","Student"],
+  ["chris","a1772883","solocarry","a1772883@student.adelaide.edu.au","Student"],
+  ["archie","a1882993","iloveui","a1882993@student.adelaide.edu.au","Student"],
+  ["aufeef","a1223332","admin","a1223332@adelaide.edu.au","Course Coordinator"]
 ]
 
-user_list.each do |name, studentid, password, email|
-  User.create(name: name, studentid: studentid, password: password, email: email)
+user_list.each do |name, studentid, password, email, role|
+  user = User.new(name: name, studentid: studentid, password: password, email: email)
+  user.save
+  Role.create(user: user, role: role)
 end
 
-role_list = [
-  [1,"Student"],
-  [2,"Student"],
-  [3,"Student"],
-  [4,"Student"],
-  [5,"Student"],
-  [6,"Student"],
-  [7,"Course Coordinator"]
-]
-
-role_list.each do |user_id, role|
-  Role.create(user_id: user_id, role: role)
-end
 
  course_list = [
    ["ESAASI","Engineering software as a service is great"],
@@ -45,49 +34,26 @@ course_list.each do |coursename, coursedesc|
  end
 
 
-enrolment_list = [
-  [1,1],
-  [1,2],
-  [1,3],
-  [1,4],
-  [1,5],
-  [1,6],
-  [1,7]
-]
-
-enrolment_list.each do |course_id, user_id|
-  Enrolment.create(course_id: course_id, user_id: user_id)
+User.all.each do |user|
+  Enrolment.create(course: Course.first, user: user)
 end
 
 
 assignment_list = [
-  [1 , "assignment1" , "this is assignment 1" , 50],
-  [1 , "assignment2" , "this is assignment 2" , 50],
-  [1 , "Exam" , "hahaha" , 0]
+  ["assignment1" , "this is assignment 1" , 50],
+  ["assignment2" , "this is assignment 2" , 50],
+  ["Exam" , "hahaha" , 0]
 ]
 
-assignment_list.each do |course_id, assignmentname, assignmentdesc, weight|
-  Assignment.create(course_id: course_id, assignmentname: assignmentname, assignmentdesc: assignmentdesc, weight: weight)
+assignment_list.each do |assignmentname, assignmentdesc, weight|
+  Assignment.create(course: Course.first, assignmentname: assignmentname, assignmentdesc: assignmentdesc, weight: weight)
 end
 
-task_list = [
-  [1,1],
-  [1,2],
-  [2,1],
-  [2,2],
-  [3,1],
-  [3,2],
-  [4,1],
-  [4,2],
-  [5,1],
-  [5,2],
-  [6,1],
-  [6,2],
-  [4,3]
-]
 
-task_list.each do |user_id, assignment_id|
-  Task.create(user_id: user_id, assignment_id: assignment_id)
+User.all.each do |user|
+  Assignment.all.each do |assignment|
+  Task.create(user: user, assignment: assignment)
+  end
 end
 
 mark_list = [
@@ -107,5 +73,5 @@ mark_list = [
 ]
 
 mark_list.each do |task_id, grade, mark, comment, asstype|
-  Mark.create(task_id: task_id, grade: grade, mark: mark, comment: comment, asstype: asstype)
+  Mark.create(task: Task.all[task_id], grade: grade, mark: mark, comment: comment, asstype: asstype)
 end

@@ -40,8 +40,7 @@ ActiveRecord::Schema.define(version: 2021_09_13_155946) do
 
   create_table "mark_histories", force: :cascade do |t|
     t.integer "mark_id"
-    t.string "grade"
-    t.integer "mark"
+    t.integer "new_mark"
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

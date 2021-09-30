@@ -91,66 +91,29 @@ class Assignment < ApplicationRecord
 
   def self.update(id , params)
      assignment = Mark.find_by(task_id: id)
-
-     if assignment == nil
-       puts 'why???? tho'
-     end
-     #assignment.update_attribute(:mark, params[:mark])
-
      params[:mark] = params[:mark].to_i
+     return if params[:mark] < 0 || params[:mark] > 100
+
 
      if params[:mark] < 50 && params[:mark] >= 0
-       assignment.update_attribute(:grade, "F")
-       assignment.update_attribute(:mark, params[:mark])
-       assignment.update_attribute(:comment, params[:comment])
+       grade = "F"
+       elsif params[:mark] >= 50 && params[:mark] < 65
+       grade = "P"
+       elsif params[:mark] >= 65 && params[:mark] < 75
+       grade = "C"
+       elsif params[:mark] >= 75 && params[:mark] < 85
+       grade = "D"
+       elsif params[:mark] >= 85 && params[:mark] <= 100
+       grade = "HD"
      end
-     if params[:mark] >= 50 && params[:mark] < 65
-       assignment.update_attribute(:grade, "P")
-       assignment.update_attribute(:mark, params[:mark])
-       assignment.update_attribute(:comment, params[:comment])
-     end
-     if params[:mark] >= 65 && params[:mark] < 75
-       assignment.update_attribute(:grade, "C")
-       assignment.update_attribute(:mark, params[:mark])
-       assignment.update_attribute(:comment, params[:comment])
-     end
-     if params[:mark] >= 75 && params[:mark] < 85
-       assignment.update_attribute(:grade, "D")
-       assignment.update_attribute(:mark, params[:mark])
-       assignment.update_attribute(:comment, params[:comment])
-     end
-     if params[:mark] >= 85 && params[:mark] <= 100
-       assignment.update_attribute(:grade, "HD")
-       assignment.update_attribute(:mark, params[:mark])
-       assignment.update_attribute(:comment, params[:comment])
+     if assignment
+       assignment.update(mark: params[:mark], comment: params[:comment], grade: grade)
+     else
+       Mark.create(task_id: id, grade: grade, mark: params[:mark], comment: params[:comment], asstype: "Assignment")
      end
 
 
-     if params[:mark] < 0 || params[:mark] > 100
-       #puts '++++++++++++++++is this working'
-       params[:mark] = params[:mark].to_s
-       @prev = assignment.mark
-       #puts @prev
-       assignment.update_attribute(:comment, "previous mark was: #{@prev}")
-       assignment.update_attribute(:mark, 0)
-       assignment.update_attribute(:grade, nil)
-     end
 
-     #if assignment.mark < 50
-     #  assignment.update_attribute(:grade, "F")
-     #
-     #if assignment.mark >= 50 && assignment.mark < 65
-     # assignment.update_attribute(:grade, "P")
-     #end
-     #if assignment.mark >= 65 && assignment.mark < 75
-     #assignment.update_attribute(:grade, "C")
-     #end
-     #if assignment.mark >= 75 && assignment.mark < 85
-     # assignment.update_attribute(:grade, "D")
-     #end
-     #if assignment.mark >= 85
-     # assignment.update_attribute(:grade, "HD")
-     #end
 
   end
 
