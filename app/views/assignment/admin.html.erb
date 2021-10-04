@@ -79,7 +79,7 @@
               <th>Comments</th>
               <th>Mark</th>
               <th>Grade</th>
-              <th>Type</th>
+              <th>Title</th>
               <th class="aligned"></th>
             </tr>
             </thead>
@@ -100,7 +100,7 @@
                 <td><p id= "wrap" style="word-break":"break-all;"><%= assignment.mark&.comment %></p></td>
                 <td><p><%= assignment.mark&.mark %></p></td>
                 <td><p><%= assignment.mark&.grade %></p></td>
-                <td><p><%= assignment.mark&.asstype %></p></td>
+                <td><p><%= assignment.assignment.assignmentname %></p></td>
                 <td class="left aligned">
                   <div class="ui small basic buttons">
                     <%= link_to "#", class: "ui mini button" do %>
@@ -127,12 +127,5 @@
     </div>
   </div>
 </div>
-
-
-<% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
-  </div>
-<% end %>
 </div>
 </div>

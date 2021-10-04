@@ -8,13 +8,13 @@
 #
 
 user_list = [
-  ["peter","a1781637","qwerty55","a1781637@student.adelaide.edu.au","Student"],
-  ["bobby","a1783331","bentley","a1783331@student.adelaide.edu.au","Student"],
-  ["ian","a1773884","poggers","a1773884@student.adelaide.edu.au","Student"],
-  ["aniza","a1884223","itsjustamood","a1884223@student.adelaide.edu.au","Student"],
-  ["chris","a1772883","solocarry","a1772883@student.adelaide.edu.au","Student"],
-  ["archie","a1882993","iloveui","a1882993@student.adelaide.edu.au","Student"],
-  ["aufeef","a1223332","admin","a1223332@adelaide.edu.au","Course Coordinator"]
+  ["Peter Trinh","a1781637","qwerty55","a1781637@student.adelaide.edu.au","Student"],
+  ["Bobby Yan","a1744633","bentley","a1744633@student.adelaide.edu.au","Student"],
+  ["Ian Chong","a1773884","poggers","a1773884@student.adelaide.edu.au","Student"],
+  ["Aniza Halim","a1884223","itsjustamood","a1884223@student.adelaide.edu.au","Student"],
+  ["Christopher Ho","a1772883","solocarry","a1772883@student.adelaide.edu.au","Student"],
+  ["Archie Verma","a1882993","iloveui","a1882993@student.adelaide.edu.au","Student"],
+  ["Aufeef Chauhan","a1234567","admin","a1234567@adelaide.edu.au","Course Coordinator"]
 ]
 
 user_list.each do |name, studentid, password, email, role|
@@ -25,8 +25,8 @@ end
 
 
  course_list = [
-   ["ESAASI","Engineering software as a service is great"],
-   ["ESAASII","Engineering software as a service is great"]
+   ["ESAASI","Engineering software as a service I"],
+   ["ESAASII","Engineering software as a service II"]
  ]
 
 course_list.each do |coursename, coursedesc|
@@ -40,9 +40,9 @@ end
 
 
 assignment_list = [
-  ["assignment1" , "this is assignment 1" , 50],
-  ["assignment2" , "this is assignment 2" , 50],
-  ["Exam" , "hahaha" , 0]
+  ["Assignment 1" , "Rotten Potatoes" , 25],
+  ["Assignment 2" , "Student MArks System" , 25],
+  ["Final Exam" , "Final Exam" , 50]
 ]
 
 assignment_list.each do |assignmentname, assignmentdesc, weight|
@@ -69,7 +69,7 @@ mark_list = [
   [10,"HD",85,"Good", "Assignment"],
   [11,"HD",85,"Good", "Assignment"],
   [12,"HD",85,"Good", "Assignment"],
-  [13,"D",77,"Cool", "Exam"]
+  [13,"D",77,"Good", "Exam"]
 ]
 
 mark_list.each do |task_id, grade, mark, comment, asstype|

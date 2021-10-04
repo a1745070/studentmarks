@@ -1,14 +1,18 @@
 class LoginController < ApplicationController
+
+  skip_before_action :RoleCheck
+
   def user_params
     params.permit(:studentid, :password)
   end
 
 
   # Function name: LoginController.login()
-  # Summary:
-  # todo: Should this check if the person is logged in already and redirect accordingly?
+  # Summary: just placeholder for loading the login page
+  # todo: a logout button needs to be made and logout call removed from here
   #
   def login
+    logout
   end
 
 
@@ -16,7 +20,7 @@ class LoginController < ApplicationController
   # Summary: It gets called by clicking the logout button. It deletes the user object from sessions
   #
   def logout
-    session.data.delete :user
+    reset_session
   end
 
 
@@ -28,11 +32,7 @@ class LoginController < ApplicationController
   #
   def check
     session[:user] = User.login(user_params)
-    @return = LoginController.RoleCheck(session[:user])
-    if @return == 0
-      puts "returned 0 - invalid login details"
-      redirect_to '/login/login'
-    end
+    @return = self.RoleCheck
     if @return == 1
       puts "returned 1"
       redirect_to '/assignment/student'

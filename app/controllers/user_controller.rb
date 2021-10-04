@@ -14,8 +14,5 @@ class UserController < ApplicationController
     end
   end
 
-  def login
-  end
-
 
 end # end of UserController.class

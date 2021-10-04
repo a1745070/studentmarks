@@ -1,109 +1,93 @@
 class AssignmentController < ApplicationController
+  def assignment_params
+    params.permit(:course_id, :assignmentname, :assignmentdesc, :weight, :mark, :comment, :id, :grade)
+  end
 
-  #def goto
-    #@allassignments = Assignment.goto
-  #  puts '++++Params id+++++++'
-  #  puts '+++++++HAHAHAH FDSGFHDSHF'
-  #  haha = params[:id]
-  #  @assignment = Assignment.goto(haha)
-  #  self.admin(@assignment)
-  #  redirect_to :assignment_admin
-  #end
+  # Function name: AssignmentController.student()
+  # Summary: It gets called by visiting assignment/student.html
+  #          After passing role check, populates students assignments
+  #
   def student
+    if session[:role] != 1
+      redirect_to root_url
+    end
     puts "student.html +++++++++++++++++++++++++++++++++++++++"
-    @studentid = session[:studentid]
+    @studentid = session[:user]
     @assignment = Assignment.student(@studentid)
   end
 
-  def admin
-    haha = params[:id]
 
+  # Function name: AssignmentController.admin()
+  # Summary: It gets called by visiting admin.html
+  #          After passing role check, populates the cc students and related assignments
+  #
+  def admin
+    if session[:role] != 2
+      redirect_to root_url
+    end
+    parameters = params[:id]
     @averageassgrade = Assignment.averageassgrade()
     @averageexamgrade = Assignment.averageexamgrade()
-
-    #@assignments = Assignment.all
-    #session[:id] = params[:id]
-    #id = -1
-
-
     if params.has_key?(:id)
-      @assignment = Assignment.admin(haha)
-
+      @assignment = Assignment.admin(parameters)
       if @assignment == nil
-        #puts 'im stupid as hell'
       end
-
-      #@currentassignment = @assignment.where({ id: haha}).first
       @title = ""
       @assignment.each do |help|
         @title = help.assignment.assignmentname
       end
-
       @currentassignment = @title
-      @averagecurrentgrade = Assignment.averagecurrentgrade(haha)
-
-
-      #@currentassignment = @assignment.assignment.assignmentname.first
-      #puts 'ARE WE STILL FRIENDS?'
-      #puts @currentassignment
-
-      #User.where({ name: "Joe", email: "joe@example.com" })
-      # SELECT * FROM users WHERE name = 'Joe' AND email = 'joe@example.com'
-
+      @averagecurrentgrade = Assignment.averagecurrentgrade(parameters)
     else
       @assignment = Assignment.admin(-1)
       @currentassignment = "All Assignments"
     end
-
     params[:id] = nil
-    #@assignment = Assignment.admin
-    #puts 'pls work'
-    #puts params[:id]
-    #puts 'haha'
-
-
-    #@allassignments = Assignment.admin(id)
-    # puts @allassignments
-
-    #@joined - User.left_joins(:Assignment).where(studentid: @all_ids, name: @all_students, comments:@all_comments,
-    #grades: @all_grades)
   end
+
 
   def same
-    haha = params[:id]
-    @assignment = Assignment.same(haha)
-    @userid = Assignment.userid(haha)
+    parameters = params[:id]
+    @assignment = Assignment.same(parameters)
+    @userid = Assignment.userid(parameters)
 
   end
 
-  #def admin
-  #  @assignment = Task.includes(:assignment , :user, :mark).all
-  #  @allassignments = Assignment.admin
-  #end
 
+  # Function name: AssignmentController.create()
+  # Summary: Currently is not called as not a user story
+  #          creates a new assignment from parameters
+  #
   def create
-    # @assignments = Assignment.new
     Assignment.create(assignment_params)
   end
 
+
+  # Function name: AssignmentController.edit()
+  # Summary: Currently is not called as not a user story
+  #          creates a new assignment from parameters
+  #
   def edit
     session[:id] = params[:id]
   end
 
+
+  # Function name: AssignmentController.show()
+  # Summary: Currently is not called, placeholder only
+  #
   def show
   end
 
+
+
   def update
-    #puts '++++++++++ whats aparams'
-    #puts session[:id]
     params[:id] = session[:id]
     Assignment.update(params[:id], assignment_params)
      respond_to do |format|
         format.html do
        redirect_to '/assignment/admin'
         end
-      end
-    # end
+     end
   end
 
   def destroy
@@ -114,9 +98,4 @@ class AssignmentController < ApplicationController
     #end
   end
 
-  def assignment_params
-    #params.permit(:courseid, :assignmentid, :assignmentname, :assignmentdescr, :grade, :mark, :comments)
-    params.permit(:course_id, :assignmentname, :assignmentdesc, :weight, :mark, :comment, :id, :grade)
-  end
-
-end
+end #end of AssignmentController.class

@@ -35,6 +35,7 @@ class Assignment < ApplicationRecord
       sum/num
     end
   end
+
   def self.same(id)
     userid=Task.includes(:user_id).where(assignment_id: id)
     Task.includes(:assignment , :user, :mark).where(user_id: userid)
