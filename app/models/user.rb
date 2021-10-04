@@ -5,14 +5,16 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :enrolments
 
+  # Function name: User.to_csv()
+  # Summary: It gets called by UserController.export_csv().
+  #          It exports and downloads all student marks as a csv file
+  #
   def self.to_csv
     @all = Task.includes(:assignment , :user, :mark).all
     @coursenames = Course.all
     attributes = %w{studentid name coursename assignmentname mark grade}
-
     CSV.generate(headers: true) do |csv|
       csv << attributes
-
       @all.each do |user|
         @a1 = user.user.studentid
         @a2 = user.user.name
@@ -30,15 +32,27 @@ class User < ApplicationRecord
       end
     end
   end
-   def self.create(params)
-      user = User.new
-      user.name = params[:name]
-      user.studentid = params[:studentid]
-      user.email = params[:email]
-      user.password = params[:password]
-      user.save
-   end
 
+
+  # Function name: User.create(object)
+  # Summary: It is not currently called.
+  #          It creates a new user in the user table using the given parameters
+  # todo: implement signup that calls this function. Currently not a user story
+  #
+  def self.create(params)
+    user = User.new
+    user.name = params[:name]
+    user.studentid = params[:studentid]
+    user.email = params[:email]
+    user.password = params[:password]
+    user.save
+  end
+
+
+  # Function name: User.to_csv()
+  # Summary: It gets called by UserController.export_csv().
+  #          It exports and downloads all student marks as a csv file
+  #
   def self.login(params)
     puts "login+++++++++++++++++++++++++++++++++++++++++++++++++++++"
     #check if user id is in database
@@ -73,6 +87,6 @@ class User < ApplicationRecord
     puts "login.end+++++++++++++++++++++++++++++++++++++++++++++++++++++"
   end
 
-end
+end #end of User.class
 
 

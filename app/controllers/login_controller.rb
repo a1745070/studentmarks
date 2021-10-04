@@ -1,12 +1,31 @@
 class LoginController < ApplicationController
+  def user_params
+    params.permit(:studentid, :password)
+  end
 
+
+  # Function name: LoginController.login()
+  # Summary:
+  # todo: Should this check if the person is logged in already and redirect accordingly?
+  #
   def login
   end
 
+
+  # Function name: LoginController.logout()
+  # Summary: It gets called by clicking the logout button. It deletes the user object from sessions
+  #
   def logout
     session.data.delete :user
   end
 
+
+  # Function name: LoginController.check()
+  # Summary: It gets called by submitting the login form. It saves the user as an object in sessions for later
+  #          checking if they are a student or CC. It uses the user object saved in sessions and calls the
+  #          ApplicationController.Rolecheck(object) to check if: invalid login? | student? | CC? and redirects
+  #          accordingly
+  #
   def check
     session[:user] = User.login(user_params)
     @return = LoginController.RoleCheck(session[:user])
@@ -24,8 +43,5 @@ class LoginController < ApplicationController
     end
   end
 
-  def user_params
-    params.permit(:studentid, :password)
-  end
 
-end
+end #end of LoginController.class

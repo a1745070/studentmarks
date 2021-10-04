@@ -1,4 +1,12 @@
 class UserController < ApplicationController
+  def user_params
+    params.permit(:name, :studentid, :password, :email)
+  end
+
+  # Function name: UserController.export_csv()
+  # Summary: It gets called by clicking the "export marks as csv" button.
+  #          It calls User.to_csv()
+  #
   def export_csv
     respond_to do |format|
       format.html
@@ -7,11 +15,7 @@ class UserController < ApplicationController
   end
 
   def login
-
   end
 
-  def user_params
-    #params.permit(:courseid, :assignmentid, :assignmentname, :assignmentdescr, :grade, :mark, :comments)
-    params.permit(:name, :studentid, :password, :email)
-  end
-end
+
+end # end of UserController.class
