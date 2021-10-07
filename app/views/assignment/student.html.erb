@@ -64,6 +64,7 @@
               <th>Mark</th>
               <th>Grade</th>
               <th class="right aligned"></th>
+              <th class="right aligned"></th>
             </tr>
             </thead>
             <tbody>
@@ -80,6 +81,13 @@
                   <% end %>
                 </div>
               </td>
+                <td class="left aligned">
+                  <div class="ui small basic buttons">
+                    <%= link_to "#", class: "ui mini button" do %>
+                      <i class="bullhorn icon"></i> Request Remark
+                    <% end %>
+                  </div>
+                </td>
             </tr>
             <% end %>
             </tbody>
